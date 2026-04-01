@@ -1,0 +1,6 @@
+interface:
+  display_name: "Researchstack"
+  short_description: "Research workflow for papers, experiments, writing, and review."
+  default_prompt: "Use $researchstack to route this project through the right research workflow."
+policy:
+  allow_implicit_invocation: true

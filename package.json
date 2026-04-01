@@ -1,0 +1,11 @@
+{
+  "name": "researchstack",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Research-team skills for Codex inspired by gstack's workflow-first architecture.",
+  "scripts": {
+    "gen:skill-docs": "bun run scripts/gen-skill-docs.js",
+    "memory:init": "bun run scripts/init-memory.js"
+  }
+}

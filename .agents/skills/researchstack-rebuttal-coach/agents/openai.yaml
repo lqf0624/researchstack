@@ -1,0 +1,6 @@
+interface:
+  display_name: "Rebuttal Coach"
+  short_description: "Turn reviewer comments into a disciplined rebuttal strategy."
+  default_prompt: "Use $researchstack-rebuttal-coach to build a point-by-point rebuttal plan from these reviews."
+policy:
+  allow_implicit_invocation: true

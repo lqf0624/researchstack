@@ -1,0 +1,13 @@
+{
+  "claim_posture": "conservative",
+  "writing_preferences": [
+    "Lead with mechanism and evidence before selling importance."
+  ],
+  "evaluation_preferences": [
+    "Always name the strongest baseline and disclose its tuning budget."
+  ],
+  "venue_preferences": {
+    "primary": [],
+    "secondary": []
+  }
+}

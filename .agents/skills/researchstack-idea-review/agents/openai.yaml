@@ -1,0 +1,6 @@
+interface:
+  display_name: "Idea Review"
+  short_description: "Stress-test novelty, importance, scope, and reviewer risk."
+  default_prompt: "Use $researchstack-idea-review to judge whether this idea is actually publication-worthy."
+policy:
+  allow_implicit_invocation: true

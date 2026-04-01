@@ -1,0 +1,86 @@
+---
+name: researchstack
+description: |
+  Workflow-first research skill pack for computer systems, networking, and AI papers. Use when Codex needs
+  to act like a rigorous paper team rather than a generic assistant: scoping a paper, stress-testing an
+  idea, refining a thesis, mapping related work, reproducing prior papers, designing experiments, auditing
+  code and artifacts, writing sections, improving LaTeX layout, designing figures, simulating reviewer
+  feedback, or preparing rebuttals for venues such as ICLR, ASPLOS, SC, NSDI, and SIGCOMM.
+---
+
+<!-- AUTO-GENERATED for codex. Edit source SKILL.md files, then rerun bun run gen:skill-docs. -->
+
+# Researchstack
+
+Use this root skill as the routing layer for the rest of the pack.
+
+Read [references/workflow.md](references/workflow.md) first when the request spans multiple stages of a paper.
+Read [references/memory.md](references/memory.md) when the project is ongoing and prior decisions should carry across sessions.
+
+Default behavior when the user says "help me push this paper" or asks for a broad research assist:
+
+1. Start with `researchstack-lab-intake` unless the thesis is already crisp.
+2. Run `researchstack-idea-review` before investing in polishing.
+3. If the idea is salvageable but weak, switch to `researchstack-idea-refine`.
+4. Build the related-work boundary with `researchstack-literature-map`.
+5. Lock evaluation with `researchstack-experiment-design`.
+6. Move immediately into `researchstack-experiment-ops` so runs, seeds, and result promotion are controlled.
+7. Use `researchstack-artifact-audit` and `researchstack-code-review` before trusting any figure or claim.
+8. Only then move to `researchstack-paper-write`, `researchstack-figure-studio`, and `researchstack-paper-layout`.
+9. Use `researchstack-submission-gate` before any external submission.
+10. Finish with `researchstack-peer-review` and, if needed, `researchstack-rebuttal-coach`.
+
+Do not jump straight to writing or figure polish when the thesis, evidence, or process are still unstable.
+
+Route to the most specific skill:
+
+- Use `researchstack-lab-intake` for raw project framing, venue targeting, and turning a vague direction into a paper plan.
+- Use `researchstack-idea-review` for skeptical novelty and risk review.
+- Use `researchstack-idea-refine` for guided improvement after the idea is weak but still promising.
+- Use `researchstack-literature-map` for related-work positioning and gap analysis.
+- Use `researchstack-learn` for project memory, venue memory, experiment policies, and long-term researcher preferences.
+- Use `researchstack-paper-reproduction` when the user provides a paper PDF and wants to reconstruct or reproduce it.
+- Use `researchstack-experiment-design` for evaluation planning before implementation or before paper lock.
+- Use `researchstack-experiment-ops` for runbooks, logging discipline, result triage, and experimental process management.
+- Use `researchstack-artifact-audit` for reproducibility and evidence tracing.
+- Use `researchstack-code-review` for research-code correctness and claim alignment.
+- Use `researchstack-paper-write` for outline and section drafting.
+- Use `researchstack-paper-layout` for LaTeX structure, notation, tables, captions, and visual consistency.
+- Use `researchstack-figure-studio` for figure and table planning.
+- Use `researchstack-submission-gate` for final readiness and venue-fit decisions.
+- Use `researchstack-peer-review` for harsh conference-style reviews.
+- Use `researchstack-rebuttal-coach` for point-by-point response strategy.
+
+If the user says "what do we already know about this project?" or wants the pack to remember durable decisions, route to `researchstack-learn` first.
+
+When the user asks for an end-to-end research push, follow this sequence:
+
+1. Intake and venue target.
+2. Skeptical idea review.
+3. Guided idea refinement if salvageable.
+4. Literature positioning.
+5. Experiment plan.
+6. Experiment operations and result promotion.
+7. Artifact and code audit.
+8. Writing and layout.
+9. Submission gate.
+10. Simulated peer review.
+11. Rebuttal coaching if needed.
+
+Use this reproduction branch when the task starts from an existing paper rather than a new internal project:
+
+1. `researchstack-paper-reproduction`
+2. `researchstack-experiment-design`
+3. `researchstack-experiment-ops`
+4. `researchstack-artifact-audit`
+5. `researchstack-peer-review`
+
+The reproduction branch is about reconstructing what the paper actually did, identifying ambiguity, and making a clean verdict about reproducibility. It is not only about whether one number matched.
+
+Keep the team behavior strict:
+
+- Challenge novelty claims early.
+- Prefer falsifiable hypotheses over inspirational framing.
+- Keep claims narrower than the current evidence, not broader.
+- Call out missing baselines, ablations, and deployment realism.
+- Distinguish systems evidence, networking evidence, and ML evidence instead of mixing standards loosely.

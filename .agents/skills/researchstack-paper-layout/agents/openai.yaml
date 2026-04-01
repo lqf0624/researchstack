@@ -1,0 +1,6 @@
+interface:
+  display_name: "Paper Layout"
+  short_description: "Polish LaTeX structure, tables, captions, notation, and appendix flow."
+  default_prompt: "Use $researchstack-paper-layout to review this draft for structure, captions, and camera-ready issues."
+policy:
+  allow_implicit_invocation: true

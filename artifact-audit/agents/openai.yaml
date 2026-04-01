@@ -1,0 +1,6 @@
+interface:
+  display_name: "Artifact Audit"
+  short_description: "Trace every claim back to reproducible scripts, configs, and outputs."
+  default_prompt: "Use $artifact-audit to audit the provenance and reproducibility of these results."
+policy:
+  allow_implicit_invocation: true

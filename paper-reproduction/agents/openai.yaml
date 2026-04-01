@@ -1,0 +1,6 @@
+interface:
+  display_name: "Paper Reproduction"
+  short_description: "Reconstruct and reproduce a paper from PDF, code, and experiments."
+  default_prompt: "Use $paper-reproduction to turn this paper into a structured reproduction plan."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,160 @@
+#!/usr/bin/env bash
+set -e
+
+ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
+SOURCE_ROOT="$ROOT_DIR"
+HOST="auto"
+LOCAL_INSTALL=0
+TARGET_DIR=""
+INSTALL_SKILLS_DIR="$(dirname "$SOURCE_ROOT")"
+SKILLS_BASENAME="$(basename "$INSTALL_SKILLS_DIR")"
+SKILLS_PARENT_BASENAME="$(basename "$(dirname "$INSTALL_SKILLS_DIR")")"
+
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --host) [ -z "$2" ] && echo "Missing value for --host (expected claude, codex, or auto)" >&2 && exit 1; HOST="$2"; shift 2 ;;
+    --host=*) HOST="${1#--host=}"; shift ;;
+    --local) LOCAL_INSTALL=1; shift ;;
+    --target) [ -z "$2" ] && echo "Missing value for --target" >&2 && exit 1; TARGET_DIR="$2"; shift 2 ;;
+    --target=*) TARGET_DIR="${1#--target=}"; shift ;;
+    *) shift ;;
+  esac
+done
+
+case "$HOST" in
+  claude|codex|auto) ;;
+  *) echo "Unknown --host value: $HOST (expected claude, codex, or auto)" >&2; exit 1 ;;
+esac
+
+if [ "$LOCAL_INSTALL" -eq 1 ] && [ -n "$TARGET_DIR" ]; then
+  echo "Use either --local or --target, not both." >&2
+  exit 1
+fi
+
+if [ -n "$TARGET_DIR" ] && [ "$HOST" = "auto" ]; then
+  echo "--target requires an explicit host: use --host claude or --host codex." >&2
+  exit 1
+fi
+
+if ! command -v bun >/dev/null 2>&1; then
+  echo "Error: bun is required but not installed." >&2
+  exit 1
+fi
+
+INSTALL_CLAUDE=0
+INSTALL_CODEX=0
+if [ "$HOST" = "auto" ]; then
+  command -v claude >/dev/null 2>&1 && INSTALL_CLAUDE=1
+  command -v codex >/dev/null 2>&1 && INSTALL_CODEX=1
+elif [ "$HOST" = "claude" ]; then
+  INSTALL_CLAUDE=1
+elif [ "$HOST" = "codex" ]; then
+  INSTALL_CODEX=1
+fi
+
+if [ "$HOST" = "auto" ] && [ "$INSTALL_CLAUDE" -eq 0 ] && [ "$INSTALL_CODEX" -eq 0 ]; then
+  INSTALL_CLAUDE=1
+fi
+
+replace_dir() {
+  local src="$1"
+  local dst="$2"
+  mkdir -p "$(dirname "$dst")"
+  if [ -e "$dst" ] && [ ! -f "$dst/.researchstack-managed" ]; then
+    local backup="${dst}.bak.$(date +%Y%m%d%H%M%S)"
+    echo "Backing up unmanaged path to $backup"
+    mv "$dst" "$backup"
+  else
+    rm -rf "$dst"
+  fi
+  cp -R "$src" "$dst"
+  touch "$dst/.researchstack-managed"
+}
+
+should_keep_checkout_root() {
+  local target_parent="$1"
+  local root_name
+  root_name="$(basename "$SOURCE_ROOT")"
+  [ "$target_parent/$root_name" = "$SOURCE_ROOT" ]
+}
+
+resolve_claude_skills_dir() {
+  if [ -n "$TARGET_DIR" ]; then
+    printf '%s\n' "$TARGET_DIR"
+  elif [ "$LOCAL_INSTALL" -eq 1 ]; then
+    printf '%s\n' "$(pwd)/.claude/skills"
+  elif [ "$SKILLS_BASENAME" = "skills" ] && [ "$SKILLS_PARENT_BASENAME" = ".claude" ]; then
+    printf '%s\n' "$INSTALL_SKILLS_DIR"
+  else
+    printf '%s\n' "$HOME/.claude/skills"
+  fi
+}
+
+resolve_codex_skills_dir() {
+  if [ -n "$TARGET_DIR" ]; then
+    printf '%s\n' "$TARGET_DIR"
+  elif [ "$LOCAL_INSTALL" -eq 1 ]; then
+    printf '%s\n' "$(pwd)/.agents/skills"
+  elif [ "$SKILLS_BASENAME" = "skills" ] && [ "$SKILLS_PARENT_BASENAME" = ".agents" ]; then
+    printf '%s\n' "$INSTALL_SKILLS_DIR"
+  else
+    printf '%s\n' "$HOME/.codex/skills"
+  fi
+}
+
+install_claude() {
+  local claude_skills
+  claude_skills="$(resolve_claude_skills_dir)"
+  local keep_checkout_root=0
+  should_keep_checkout_root "$claude_skills" && keep_checkout_root=1
+  mkdir -p "$claude_skills"
+  for dir in "$SOURCE_ROOT" "$SOURCE_ROOT"/lab-intake "$SOURCE_ROOT"/idea-review "$SOURCE_ROOT"/idea-refine \
+    "$SOURCE_ROOT"/literature-map "$SOURCE_ROOT"/learn "$SOURCE_ROOT"/paper-reproduction "$SOURCE_ROOT"/experiment-design "$SOURCE_ROOT"/experiment-ops \
+    "$SOURCE_ROOT"/artifact-audit "$SOURCE_ROOT"/code-review "$SOURCE_ROOT"/paper-write \
+    "$SOURCE_ROOT"/paper-layout "$SOURCE_ROOT"/figure-studio "$SOURCE_ROOT"/submission-gate \
+    "$SOURCE_ROOT"/peer-review "$SOURCE_ROOT"/rebuttal-coach; do
+    local base
+    base="$(basename "$dir")"
+    local name="researchstack"
+    if [ "$base" != "researchstack" ]; then
+      name="researchstack-$base"
+    elif [ "$keep_checkout_root" -eq 1 ]; then
+      continue
+    fi
+    replace_dir "$dir" "$claude_skills/$name"
+  done
+  echo "researchstack ready (claude)."
+  echo "  claude skills: $claude_skills"
+}
+
+install_codex_compatible() {
+  local codex_skills
+  codex_skills="$(resolve_codex_skills_dir)"
+  local temp_agents_dir
+  local keep_checkout_root=0
+  should_keep_checkout_root "$codex_skills" && keep_checkout_root=1
+  mkdir -p "$codex_skills"
+  temp_agents_dir="$(mktemp -d "${TMPDIR:-/tmp}/researchstack-codex.XXXXXX")"
+  (
+    cd "$SOURCE_ROOT"
+    bun run gen:skill-docs --host codex --out "$temp_agents_dir"
+  )
+  for dir in "$temp_agents_dir"/researchstack*; do
+    [ -d "$dir" ] || continue
+    if [ "$keep_checkout_root" -eq 1 ] && [ "$(basename "$dir")" = "researchstack" ]; then
+      continue
+    fi
+    replace_dir "$dir" "$codex_skills/$(basename "$dir")"
+  done
+  rm -rf "$temp_agents_dir"
+  echo "researchstack ready (codex-compatible)."
+  echo "  codex skills: $codex_skills"
+}
+
+if [ "$INSTALL_CLAUDE" -eq 1 ]; then
+  install_claude
+fi
+
+if [ "$INSTALL_CODEX" -eq 1 ]; then
+  install_codex_compatible
+fi
