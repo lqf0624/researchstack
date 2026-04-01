@@ -266,3 +266,8 @@ The memory layer is described in [references/memory.md](references/memory.md).
 - `researchstack-submission-gate`
 - `researchstack-peer-review`
 - `researchstack-rebuttal-coach`
+
+## Project Docs
+
+- [CONTRIBUTING.md](C:\Users\lqf-0624\researchstack\CONTRIBUTING.md)
+- [LICENSE](C:\Users\lqf-0624\researchstack\LICENSE)
