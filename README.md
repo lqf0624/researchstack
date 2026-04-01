@@ -57,38 +57,39 @@ Requirements:
 - Git Bash is recommended on Windows for running `./setup`
 - WSL only works if your host also scans the WSL-side skills directory, or if you use `--target` to point at a Windows-visible skills path
 
-Current status:
+Repository:
 
-- This repository is ready to use locally.
-- A public remote has not been published yet, so the examples below start with local paths.
+- GitHub: `https://github.com/lqf0624/researchstack`
 
-Local install on your machine for Claude Code:
+Install on your machine for Claude Code:
 
 ```bash
-cd /path/to/researchstack
+git clone https://github.com/lqf0624/researchstack.git ~/.claude/skills/researchstack
+cd ~/.claude/skills/researchstack
 ./setup --host claude
 ```
 
 Add to one repo so teammates in the same workspace get it:
 
 ```bash
-cp -Rf /path/to/researchstack .claude/skills/researchstack
+cp -Rf ~/.claude/skills/researchstack .claude/skills/researchstack
 rm -rf .claude/skills/researchstack/.git
 cd .claude/skills/researchstack
 ./setup --host claude
 ```
 
-Local install on your machine for Codex-compatible hosts:
+Install on your machine for Codex-compatible hosts:
 
 ```bash
-cd /path/to/researchstack
+git clone https://github.com/lqf0624/researchstack.git ~/researchstack
+cd ~/researchstack
 ./setup --host codex
 ```
 
 Install to one repo for a Codex-compatible host:
 
 ```bash
-cp -Rf /path/to/researchstack .agents/skills/researchstack
+git clone https://github.com/lqf0624/researchstack.git .agents/skills/researchstack
 rm -rf .agents/skills/researchstack/.git
 cd .agents/skills/researchstack
 ./setup --host codex
@@ -99,7 +100,7 @@ When setup runs from `.agents/skills/researchstack`, it keeps the vendored check
 Advanced: install to an explicit skills directory:
 
 ```bash
-cd /path/to/researchstack
+cd ~/researchstack
 ./setup --host codex --target /path/to/project/.agents/skills
 ```
 
@@ -107,24 +108,6 @@ Auto-detect installed hosts from a shared checkout:
 
 ```bash
 ./setup --host auto
-```
-
-Once a remote repository exists, the same flows can use `git clone` instead of `cp -Rf`.
-
-Example future remote install for Claude Code:
-
-```bash
-git clone https://github.com/<your-org>/researchstack.git ~/.claude/skills/researchstack
-cd ~/.claude/skills/researchstack
-./setup --host claude
-```
-
-Example future remote install for Codex-compatible hosts:
-
-```bash
-git clone https://github.com/<your-org>/researchstack.git ~/researchstack
-cd ~/researchstack
-./setup --host codex
 ```
 
 Behavior summary:
