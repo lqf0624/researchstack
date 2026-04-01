@@ -137,6 +137,20 @@ Outcome:
 - kill-shot risks
 - first experiment plan
 
+### Case 0: You only have a broad area, not a paper-sized idea
+
+1. Run `researchstack-idea-finder`
+2. Review the surviving topic cards, not the raw candidates
+3. Continue with `researchstack-lab-intake`
+4. Re-run `researchstack-idea-review` if you reshape the thesis materially
+
+Outcome:
+
+- 3 to 5 reviewed topic cards
+- rejected directions with reasons
+- one-paper thesis candidates instead of open-ended directions
+- a clean handoff into intake
+
 ### Case 1b: You want the pack to remember the project
 
 1. Run `researchstack-learn`
@@ -234,6 +248,7 @@ The memory layer is described in [references/memory.md](references/memory.md).
 
 - `researchstack`
 - `researchstack-lab-intake`
+- `researchstack-idea-finder`
 - `researchstack-idea-review`
 - `researchstack-idea-refine`
 - `researchstack-literature-map`

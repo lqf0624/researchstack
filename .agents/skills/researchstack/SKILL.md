@@ -19,22 +19,24 @@ Read [references/memory.md](references/memory.md) when the project is ongoing an
 
 Default behavior when the user says "help me push this paper" or asks for a broad research assist:
 
-1. Start with `researchstack-lab-intake` unless the thesis is already crisp.
-2. Run `researchstack-idea-review` before investing in polishing.
-3. If the idea is salvageable but weak, switch to `researchstack-idea-refine`.
-4. Build the related-work boundary with `researchstack-literature-map`.
-5. Lock evaluation with `researchstack-experiment-design`.
-6. Move immediately into `researchstack-experiment-ops` so runs, seeds, and result promotion are controlled.
-7. Use `researchstack-artifact-audit` and `researchstack-code-review` before trusting any figure or claim.
-8. Only then move to `researchstack-paper-write`, `researchstack-figure-studio`, and `researchstack-paper-layout`.
-9. Use `researchstack-submission-gate` before any external submission.
-10. Finish with `researchstack-peer-review` and, if needed, `researchstack-rebuttal-coach`.
+1. Start with `researchstack-idea-finder` if the user only has a broad area, not a paper-sized thesis.
+2. Otherwise start with `researchstack-lab-intake` unless the thesis is already crisp.
+3. Run `researchstack-idea-review` before investing in polishing.
+4. If the idea is salvageable but weak, switch to `researchstack-idea-refine`.
+5. Build the related-work boundary with `researchstack-literature-map`.
+6. Lock evaluation with `researchstack-experiment-design`.
+7. Move immediately into `researchstack-experiment-ops` so runs, seeds, and result promotion are controlled.
+8. Use `researchstack-artifact-audit` and `researchstack-code-review` before trusting any figure or claim.
+9. Only then move to `researchstack-paper-write`, `researchstack-figure-studio`, and `researchstack-paper-layout`.
+10. Use `researchstack-submission-gate` before any external submission.
+11. Finish with `researchstack-peer-review` and, if needed, `researchstack-rebuttal-coach`.
 
 Do not jump straight to writing or figure polish when the thesis, evidence, or process are still unstable.
 
 Route to the most specific skill:
 
 - Use `researchstack-lab-intake` for raw project framing, venue targeting, and turning a vague direction into a paper plan.
+- Use `researchstack-idea-finder` when the user has an area of interest, venue intuition, or resource constraint but not yet a one-paper thesis.
 - Use `researchstack-idea-review` for skeptical novelty and risk review.
 - Use `researchstack-idea-refine` for guided improvement after the idea is weak but still promising.
 - Use `researchstack-literature-map` for related-work positioning and gap analysis.
@@ -55,17 +57,26 @@ If the user says "what do we already know about this project?" or wants the pack
 
 When the user asks for an end-to-end research push, follow this sequence:
 
-1. Intake and venue target.
-2. Skeptical idea review.
-3. Guided idea refinement if salvageable.
-4. Literature positioning.
-5. Experiment plan.
-6. Experiment operations and result promotion.
-7. Artifact and code audit.
-8. Writing and layout.
-9. Submission gate.
-10. Simulated peer review.
-11. Rebuttal coaching if needed.
+1. Idea finding if the project starts from a broad area rather than a thesis.
+2. Intake and venue target.
+3. Skeptical idea review.
+4. Guided idea refinement if salvageable.
+5. Literature positioning.
+6. Experiment plan.
+7. Experiment operations and result promotion.
+8. Artifact and code audit.
+9. Writing and layout.
+10. Submission gate.
+11. Simulated peer review.
+12. Rebuttal coaching if needed.
+
+Use this idea-finding branch when the user starts with a topic area, not a paper-sized idea:
+
+1. `researchstack-idea-finder`
+2. `researchstack-lab-intake`
+3. `researchstack-idea-review`
+4. `researchstack-idea-refine` if needed
+5. `researchstack-literature-map`
 
 Use this reproduction branch when the task starts from an existing paper rather than a new internal project:
 

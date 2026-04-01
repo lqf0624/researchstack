@@ -108,7 +108,7 @@ install_claude() {
   local keep_checkout_root=0
   should_keep_checkout_root "$claude_skills" && keep_checkout_root=1
   mkdir -p "$claude_skills"
-  for dir in "$SOURCE_ROOT" "$SOURCE_ROOT"/lab-intake "$SOURCE_ROOT"/idea-review "$SOURCE_ROOT"/idea-refine \
+  for dir in "$SOURCE_ROOT" "$SOURCE_ROOT"/lab-intake "$SOURCE_ROOT"/idea-finder "$SOURCE_ROOT"/idea-review "$SOURCE_ROOT"/idea-refine \
     "$SOURCE_ROOT"/literature-map "$SOURCE_ROOT"/learn "$SOURCE_ROOT"/paper-reproduction "$SOURCE_ROOT"/experiment-design "$SOURCE_ROOT"/experiment-ops \
     "$SOURCE_ROOT"/artifact-audit "$SOURCE_ROOT"/code-review "$SOURCE_ROOT"/paper-write \
     "$SOURCE_ROOT"/paper-layout "$SOURCE_ROOT"/figure-studio "$SOURCE_ROOT"/submission-gate \

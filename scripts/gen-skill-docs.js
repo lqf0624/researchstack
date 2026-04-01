@@ -7,6 +7,7 @@ const referencesDir = join(root, "references");
 const sourceDirs = [
   ".",
   "lab-intake",
+  "idea-finder",
   "idea-review",
   "idea-refine",
   "literature-map",
@@ -78,6 +79,7 @@ function rewriteBodyForGeneratedHost(body) {
   return body
     .replaceAll("(../references/", "(references/")
     .replaceAll("`lab-intake`", "`researchstack-lab-intake`")
+    .replaceAll("`idea-finder`", "`researchstack-idea-finder`")
     .replaceAll("`idea-review`", "`researchstack-idea-review`")
     .replaceAll("`idea-refine`", "`researchstack-idea-refine`")
     .replaceAll("`literature-map`", "`researchstack-literature-map`")
