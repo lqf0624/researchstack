@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation and setup guide
+    url: https://github.com/lqf0624/researchstack#install
+    about: Start here for install paths, host support, and troubleshooting.
+  - name: Contributing guide
+    url: https://github.com/lqf0624/researchstack/blob/main/CONTRIBUTING.md
+    about: Read this before changing skills, generation logic, or install behavior.
