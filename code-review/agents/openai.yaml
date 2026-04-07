@@ -1,6 +1,6 @@
 interface:
   display_name: "Research Code Review"
   short_description: "Review research code for correctness, validity, and hidden bias."
-  default_prompt: "Use $code-review to review this research code for bugs and invalid conclusions."
+  default_prompt: "Use $researchstack-code-review to review this research code for bugs and invalid conclusions."
 policy:
   allow_implicit_invocation: true

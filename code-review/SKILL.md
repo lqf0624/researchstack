@@ -1,5 +1,5 @@
 ---
-name: code-review
+name: researchstack-code-review
 description: |
   Research-code review skill for systems, networking, and AI projects. Use when Codex should review experiment code,
   simulators, training pipelines, benchmarks, data processing, or plotting logic with emphasis on correctness,

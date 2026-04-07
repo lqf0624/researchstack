@@ -1,5 +1,5 @@
 ---
-name: experiment-design
+name: researchstack-experiment-design
 description: |
   Experiment-planning skill for research papers in systems, networking, and AI. Use when Codex must design or audit
   baselines, metrics, workloads, ablations, statistical checks, scaling studies, sensitivity analysis, and failure

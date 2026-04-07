@@ -1,5 +1,5 @@
 ---
-name: paper-layout
+name: researchstack-paper-layout
 description: |
   LaTeX and presentation-layout skill for research papers. Use when Codex should improve paper structure, section
   ordering, notation consistency, figure placement, table formatting, captions, appendix organization, or submission

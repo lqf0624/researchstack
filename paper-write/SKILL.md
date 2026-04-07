@@ -1,5 +1,5 @@
 ---
-name: paper-write
+name: researchstack-paper-write
 description: |
   Paper-writing skill for CS, networking, and AI venues. Use when Codex needs to draft or revise titles, abstracts,
   introductions, method sections, evaluation sections, related work, limitations, or conclusions while keeping claims

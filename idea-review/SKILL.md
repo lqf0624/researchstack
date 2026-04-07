@@ -1,5 +1,5 @@
 ---
-name: idea-review
+name: researchstack-idea-review
 description: |
   Skeptical review skill for research ideas. Use when Codex should act like a sharp program committee member or
   senior coauthor and judge whether an idea is novel, important, scoped correctly, and likely to survive strict

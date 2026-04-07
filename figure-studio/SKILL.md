@@ -1,5 +1,5 @@
 ---
-name: figure-studio
+name: researchstack-figure-studio
 description: |
   Figure and table design skill for research papers. Use when Codex should decide what to visualize, sketch figure
   plans, critique existing charts, improve captions, structure result tables, or make visual evidence easier for strict

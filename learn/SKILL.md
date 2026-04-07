@@ -1,5 +1,5 @@
 ---
-name: learn
+name: researchstack-learn
 description: |
   Research memory skill for long-lived projects and researcher preferences. Use when Codex should record, inspect,
   prune, or apply durable knowledge about a paper project, venue strategy, experiment policy, writing weaknesses,

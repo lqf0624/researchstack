@@ -1,5 +1,5 @@
 ---
-name: idea-refine
+name: researchstack-idea-refine
 description: |
   Guided idea-refinement skill for research projects that are interesting but not yet submission-ready. Use when
   Codex should improve a paper idea through structured questioning, narrowing, hypothesis building, contribution

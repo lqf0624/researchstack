@@ -1,5 +1,5 @@
 ---
-name: paper-reproduction
+name: researchstack-paper-reproduction
 description: |
   Paper reproduction skill for computer systems, networking, and AI research. Use when the user provides a paper PDF,
   appendix, or repository and wants Codex to reconstruct the method, extract claims and experiments, identify missing

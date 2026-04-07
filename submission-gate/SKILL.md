@@ -1,5 +1,5 @@
 ---
-name: submission-gate
+name: researchstack-submission-gate
 description: |
   Final submission-readiness skill for research papers. Use when Codex should decide whether a paper is ready for
   submission, identify the top rejection risks, check venue fit, find missing evidence or writing gaps, and recommend

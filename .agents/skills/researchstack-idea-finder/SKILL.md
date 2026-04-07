@@ -3,7 +3,7 @@ name: researchstack-idea-finder
 description: |
   Topic-finding skill for research projects in computer systems, networking, and AI. Use when the user has a broad
   research area, venue target, resource constraint, or personal interest but does not yet have a one-paper thesis.
-  This skill must scan recent papers, generate candidate topics, run each candidate through idea-review, and only
+  This skill must scan recent papers, generate candidate topics, run each candidate through researchstack-idea-review, and only
   surface the surviving paper-sized ideas.
 ---
 

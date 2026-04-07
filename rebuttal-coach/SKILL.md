@@ -1,5 +1,5 @@
 ---
-name: rebuttal-coach
+name: researchstack-rebuttal-coach
 description: |
   Rebuttal and response strategy skill for research submissions. Use when Codex should turn reviewer comments into a
   disciplined response plan, draft point-by-point rebuttal text, identify which objections need evidence versus wording,

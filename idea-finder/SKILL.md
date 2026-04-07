@@ -1,9 +1,9 @@
 ---
-name: idea-finder
+name: researchstack-idea-finder
 description: |
   Topic-finding skill for research projects in computer systems, networking, and AI. Use when the user has a broad
   research area, venue target, resource constraint, or personal interest but does not yet have a one-paper thesis.
-  This skill must scan recent papers, generate candidate topics, run each candidate through idea-review, and only
+  This skill must scan recent papers, generate candidate topics, run each candidate through researchstack-idea-review, and only
   surface the surviving paper-sized ideas.
 ---
 
@@ -26,7 +26,7 @@ Required flow:
 1. Clarify the user's area, venue interest, and constraints.
 2. Scan recent papers in the relevant subfield.
 3. Generate a small set of candidate topics.
-4. Run every candidate through `idea-review`.
+4. Run every candidate through `researchstack-idea-review`.
 5. Apply a one-paper envelope filter.
 6. Only then return the surviving topic cards.
 
@@ -37,7 +37,7 @@ Hard rules:
 - Do not reward vague trend-chasing. Anchor every surviving topic to a real gap relative to recent papers.
 - If no candidate survives review, say so plainly and explain what input needs tightening.
 
-The `idea-review` gate is mandatory. Use it to reject:
+The `researchstack-idea-review` gate is mandatory. Use it to reject:
 
 - novelty that collapses under obvious prior work,
 - ideas with evidence burden beyond the user's likely resources,
@@ -60,7 +60,7 @@ Every surviving topic card must include:
 6. Minimum believable experiment path.
 7. The top reviewer objection.
 8. What is explicitly out of scope.
-9. The `idea-review` verdict and why it survived.
+9. The `researchstack-idea-review` verdict and why it survived.
 
 The goal is not to maximize idea count. The goal is to return a few paper-sized theses that already survived skeptical filtering.
 

@@ -1,5 +1,5 @@
 ---
-name: artifact-audit
+name: researchstack-artifact-audit
 description: |
   Reproducibility and evidence-audit skill for research projects. Use when Codex should trace figures and claims back
   to scripts, configs, datasets, seeds, hardware assumptions, and logs; find missing provenance; or prepare the code

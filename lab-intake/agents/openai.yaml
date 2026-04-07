@@ -1,6 +1,6 @@
 interface:
   display_name: "Lab Intake"
   short_description: "Turn rough research ideas into a paper plan and venue target."
-  default_prompt: "Use $lab-intake to turn this rough project into a paper-ready research brief."
+  default_prompt: "Use $researchstack-lab-intake to turn this rough project into a paper-ready research brief."
 policy:
   allow_implicit_invocation: true

@@ -1,5 +1,5 @@
 ---
-name: experiment-ops
+name: researchstack-experiment-ops
 description: |
   Experimental-process management skill for research projects. Use when Codex should structure runbooks, logging,
   checkpointing, seed control, result triage, failure analysis, experiment queues, and evidence collection so that the

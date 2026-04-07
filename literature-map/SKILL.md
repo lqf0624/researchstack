@@ -1,5 +1,5 @@
 ---
-name: literature-map
+name: researchstack-literature-map
 description: |
   Related-work and positioning skill for CS, networking, and AI papers. Use when Codex needs to map prior work,
   identify the closest baselines and competing narratives, clarify novelty boundaries, or build a literature

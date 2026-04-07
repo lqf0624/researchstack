@@ -1,5 +1,5 @@
 ---
-name: peer-review
+name: researchstack-peer-review
 description: |
   Strict conference-style review skill for computer science papers. Use when Codex should simulate expert reviewers for
   venues such as ICLR, ASPLOS, SC, NSDI, or SIGCOMM, produce a structured review, assign confidence, explain likely

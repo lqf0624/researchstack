@@ -1,5 +1,5 @@
 ---
-name: lab-intake
+name: researchstack-lab-intake
 description: |
   Intake skill for new research directions in computer systems, networking, and AI. Use when the user has a
   rough idea, partial implementation, benchmark intuition, or venue target and needs to turn it into a clear
