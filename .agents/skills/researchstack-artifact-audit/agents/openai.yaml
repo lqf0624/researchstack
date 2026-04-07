@@ -1,5 +1,5 @@
 interface:
-  display_name: "Artifact Audit"
+  display_name: "Researchstack: Artifact Audit"
   short_description: "Trace every claim back to reproducible scripts, configs, and outputs."
   default_prompt: "Use $researchstack-artifact-audit to audit the provenance and reproducibility of these results."
 policy:

@@ -1,5 +1,5 @@
 interface:
-  display_name: "Submission Gate"
+  display_name: "Researchstack: Submission Gate"
   short_description: "Decide whether the paper is ready to submit, delay, or retarget."
   default_prompt: "Use $researchstack-submission-gate to make a go/no-go submission decision for this paper."
 policy:

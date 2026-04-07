@@ -1,5 +1,5 @@
 interface:
-  display_name: "Research Learn"
+  display_name: "Researchstack: Learn"
   short_description: "Store and reuse project memory, reviewer risks, and researcher preferences."
   default_prompt: "Use $researchstack-learn to inspect or update what this research project and researcher should remember."
 policy:

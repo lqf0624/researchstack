@@ -1,5 +1,5 @@
 interface:
-  display_name: "Peer Review"
+  display_name: "Researchstack: Peer Review"
   short_description: "Simulate strict conference reviewers and likely rejection reasons."
   default_prompt: "Use $researchstack-peer-review to review this paper like a serious conference reviewer."
 policy:

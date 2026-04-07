@@ -1,5 +1,5 @@
 interface:
-  display_name: "Experiment Design"
+  display_name: "Researchstack: Experiment Design"
   short_description: "Design claims, baselines, ablations, and evaluation rigor."
   default_prompt: "Use $researchstack-experiment-design to build the evaluation matrix for this paper."
 policy:

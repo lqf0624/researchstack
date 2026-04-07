@@ -1,5 +1,5 @@
 interface:
-  display_name: "Paper Reproduction"
+  display_name: "Researchstack: Paper Reproduction"
   short_description: "Reconstruct and reproduce a paper from PDF, code, and experiments."
   default_prompt: "Use $researchstack-paper-reproduction to turn this paper into a structured reproduction plan."
 policy:

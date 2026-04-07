@@ -1,5 +1,5 @@
 interface:
-  display_name: "Paper Write"
+  display_name: "Researchstack: Paper Write"
   short_description: "Draft sections that align claims, mechanism, evidence, and limits."
   default_prompt: "Use $researchstack-paper-write to draft or revise this paper section with claim-evidence discipline."
 policy:

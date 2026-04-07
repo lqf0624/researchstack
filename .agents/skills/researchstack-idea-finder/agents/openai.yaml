@@ -1,5 +1,5 @@
 interface:
-  display_name: "Idea Finder"
+  display_name: "Researchstack: Idea Finder"
   short_description: "Find paper-sized research topics from recent work, then filter them through mandatory review."
   default_prompt: "Use $researchstack-idea-finder to turn a broad research area into reviewed, one-paper thesis candidates."
 policy:

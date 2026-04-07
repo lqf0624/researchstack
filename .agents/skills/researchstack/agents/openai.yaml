@@ -1,5 +1,5 @@
 interface:
-  display_name: "Researchstack"
+  display_name: "Researchstack: Router"
   short_description: "Research workflow for papers, experiments, writing, and review."
   default_prompt: "Use $researchstack to route this project through the right research workflow."
 policy:

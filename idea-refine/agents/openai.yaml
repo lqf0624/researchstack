@@ -1,5 +1,5 @@
 interface:
-  display_name: "Idea Refine"
+  display_name: "Researchstack: Idea Refine"
   short_description: "Refine a weak or broad idea into a defensible thesis."
   default_prompt: "Use $researchstack-idea-refine to sharpen this project into a tighter thesis and contribution."
 policy:

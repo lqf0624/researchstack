@@ -1,5 +1,5 @@
 interface:
-  display_name: "Experiment Ops"
+  display_name: "Researchstack: Experiment Ops"
   short_description: "Run experiments with controlled logs, seeds, triage, and promotion."
   default_prompt: "Use $researchstack-experiment-ops to organize runs, logs, and result promotion for this project."
 policy:

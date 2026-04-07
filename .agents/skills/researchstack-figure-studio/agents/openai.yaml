@@ -1,5 +1,5 @@
 interface:
-  display_name: "Figure Studio"
+  display_name: "Researchstack: Figure Studio"
   short_description: "Plan figures and tables that carry evidentiary weight."
   default_prompt: "Use $researchstack-figure-studio to storyboard the key figures and tables for this paper."
 policy:
