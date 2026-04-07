@@ -16,12 +16,13 @@ Representative venues:
 
 `researchstack` is intended for Markdown-based skill systems, not only Codex.
 
-- Claude Code: installs the source skills directly.
+- Claude Code: installs the source skills directly, with source skill names also using the `researchstack-*` prefix for easier search.
 - Codex and repo-local `.agents/skills` style hosts: use generated `researchstack-*` skills, while repo-local installs keep the vendored `researchstack` root skill as the routing entrypoint.
 - Generic hosts can also consume the generated distribution directly via `.agents/skills/` or `./setup --host codex --target <skills-dir>`.
 
 The source tree is the canonical authoring format.
 Generated skills live under `.agents/skills/` and are rebuilt by `bun run gen:skill-docs`.
+The host-facing UI metadata groups skills under `Researchstack: ...` display names so they are easier to spot in long skill lists.
 
 ## What It Remembers
 
@@ -213,9 +214,10 @@ Outcome:
 ## Architecture
 
 - Source skills live at the repo root and subdirectories such as `idea-review/`, `experiment-design/`, and `peer-review/`.
+- Source skill names are prefixed as `researchstack-*` even when the folder names stay short and readable.
 - Shared references live in `references/`.
 - Skill-local templates and checklists live in per-skill `assets/` directories.
-- UI metadata lives in per-skill `agents/openai.yaml` files.
+- UI metadata lives in per-skill `agents/openai.yaml` files and uses `Researchstack: ...` display names for grouping.
 - Memory guidance lives in `references/memory.md`.
 - Local project memory is designed to live under `~/.researchstack/projects/` and `~/.researchstack/profile/`.
 - `scripts/init-memory.js` creates stable project slugs and initializes the local memory layout.

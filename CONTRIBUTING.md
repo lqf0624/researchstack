@@ -47,14 +47,15 @@ If you are testing Claude installs, run:
 1. Edit the source skill, not the generated copy.
 2. Keep shared policy in `references/` when multiple skills need it.
 3. Keep reusable checklists and templates in the skill's `assets/` directory.
-4. If the skill should surface differently in host UIs, update its `agents/openai.yaml`.
-5. Regenerate distribution output after source changes:
+4. Keep the skill `name:` and host-facing prompt names aligned with the `researchstack-*` convention.
+5. If the skill should surface differently in host UIs, update its `agents/openai.yaml`, but preserve the `Researchstack: ...` display-name grouping unless there is a strong reason not to.
+6. Regenerate distribution output after source changes:
 
 ```bash
 bun run gen:skill-docs --host codex
 ```
 
-6. If install behavior changed, rerun `./setup` and smoke test both Claude-style and Codex-style flows.
+7. If install behavior changed, rerun `./setup` and smoke test both Claude-style and Codex-style flows.
 
 ## Contribution Standards
 
@@ -72,7 +73,7 @@ Run through this short checklist:
 1. Regenerate `.agents/skills/`.
 2. Verify `README.md` still matches the repo's real install and usage story.
 3. Verify new docs are discoverable from `README.md`.
-4. Recheck any `agents/openai.yaml` prompts if generated skill names changed.
+4. Recheck any `agents/openai.yaml` prompts and display names if skill names changed.
 5. If you changed memory behavior, rerun:
 
 ```bash
