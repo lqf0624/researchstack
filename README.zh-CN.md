@@ -31,7 +31,7 @@
 ## 你会得到什么
 
 - 一个总路由 skill：`researchstack`
-- 17 个带 `researchstack-*` 前缀的研究 skills，便于搜索
+- 18 个带 `researchstack-*` 前缀的研究 skills，便于搜索
 - Claude Code 直接使用的源码 skills
 - Codex-compatible 宿主使用的 `.agents/skills/` 生成产物
 - 本地项目记忆层
@@ -46,6 +46,8 @@
 
 - `researchstack`
   总路由器。适合“帮我推进这篇论文”这种跨多阶段请求。
+- `researchstack-next-step`
+  中途决策层。适合“我现在不知道下一步该干什么、该用哪个 skill”的状态，它会给出当前阶段、下一步推荐和暂时不要做什么。
 - `researchstack-learn`
   项目记忆与研究者偏好管理。适合记录 thesis、venue 决策、reviewer 风险、实验规则等可复用信息。
 
@@ -97,6 +99,22 @@
   把 reviewer comments 变成结构化 rebuttal plan 和逐点回应策略。
 
 ## 常见使用路径
+
+### 0. 你卡住了，不知道下一步该做什么
+
+推荐顺序：
+
+1. `researchstack-next-step`
+2. 它推荐的 1 到 2 个后续 skills
+3. 如果产生了长期决策，再用 `researchstack-learn` 记录
+
+产出：
+
+- 当前研究阶段
+- 当前阻塞点
+- 一个明确的下一步 skill
+- 暂时不要做什么
+- 简短后续链路
 
 ### 1. 你只有一个大方向，没有具体题目
 

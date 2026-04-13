@@ -31,7 +31,7 @@ What they usually do badly is workflow:
 ## What You Get
 
 - A root router skill: `researchstack`
-- 17 focused research skills with `researchstack-*` names for easier search
+- 18 focused research skills with `researchstack-*` names for easier search
 - Source skills for Claude Code style installs
 - Generated `.agents/skills/` distribution for Codex-compatible installs
 - A local memory layer for long-running projects
@@ -46,6 +46,8 @@ Host UIs group the skills under `Researchstack: ...` display names so they are e
 
 - `researchstack`
   Root router. Use when the request spans multiple stages and you want the pack to choose the right research workflow.
+- `researchstack-next-step`
+  Mid-project decision layer. Use when you are stuck and need one clear recommendation for what to do next, which skill to run, and what not to do yet.
 - `researchstack-learn`
   Project memory and researcher preference management. Use to store durable decisions such as thesis boundaries, venue choices, reviewer risks, and evaluation rules.
 
@@ -97,6 +99,22 @@ Host UIs group the skills under `Researchstack: ...` display names so they are e
   Turn reviews into a disciplined rebuttal plan and point-by-point response strategy.
 
 ## Typical Workflows
+
+### 0. You are stuck and do not know what to do next
+
+Use:
+
+1. `researchstack-next-step`
+2. the one or two follow-up skills it recommends
+3. `researchstack-learn` if the step creates a durable decision
+
+Outcome:
+
+- current research stage
+- blocking mismatch
+- one clear next skill
+- what not to do yet
+- short follow-up chain
 
 ### 1. You only have a broad area
 

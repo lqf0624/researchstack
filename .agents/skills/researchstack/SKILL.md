@@ -19,23 +19,25 @@ Read [references/memory.md](references/memory.md) when the project is ongoing an
 
 Default behavior when the user says "help me push this paper" or asks for a broad research assist:
 
-1. Start with `researchstack-idea-finder` if the user only has a broad area, not a paper-sized thesis.
-2. Otherwise start with `researchstack-lab-intake` unless the thesis is already crisp.
-3. Run `researchstack-idea-review` before investing in polishing.
-4. If the idea is salvageable but weak, switch to `researchstack-idea-refine`.
-5. Build the related-work boundary with `researchstack-literature-map`.
-6. Lock evaluation with `researchstack-experiment-design`.
-7. Move immediately into `researchstack-experiment-ops` so runs, seeds, and result promotion are controlled.
-8. Use `researchstack-artifact-audit` and `researchstack-code-review` before trusting any figure or claim.
-9. Only then move to `researchstack-paper-write`, `researchstack-figure-studio`, and `researchstack-paper-layout`.
-10. Use `researchstack-submission-gate` before any external submission.
-11. Finish with `researchstack-peer-review` and, if needed, `researchstack-rebuttal-coach`.
+1. Start with `researchstack-next-step` if the user is mid-project and asks what to do next.
+2. Start with `researchstack-idea-finder` if the user only has a broad area, not a paper-sized thesis.
+3. Otherwise start with `researchstack-lab-intake` unless the thesis is already crisp.
+4. Run `researchstack-idea-review` before investing in polishing.
+5. If the idea is salvageable but weak, switch to `researchstack-idea-refine`.
+6. Build the related-work boundary with `researchstack-literature-map`.
+7. Lock evaluation with `researchstack-experiment-design`.
+8. Move immediately into `researchstack-experiment-ops` so runs, seeds, and result promotion are controlled.
+9. Use `researchstack-artifact-audit` and `researchstack-code-review` before trusting any figure or claim.
+10. Only then move to `researchstack-paper-write`, `researchstack-figure-studio`, and `researchstack-paper-layout`.
+11. Use `researchstack-submission-gate` before any external submission.
+12. Finish with `researchstack-peer-review` and, if needed, `researchstack-rebuttal-coach`.
 
 Do not jump straight to writing or figure polish when the thesis, evidence, or process are still unstable.
 
 Route to the most specific skill:
 
 - Use `researchstack-lab-intake` for raw project framing, venue targeting, and turning a vague direction into a paper plan.
+- Use `researchstack-next-step` when the user is mid-project, stuck, or unsure which research skill to use next.
 - Use `researchstack-idea-finder` when the user has an area of interest, venue intuition, or resource constraint but not yet a one-paper thesis.
 - Use `researchstack-idea-review` for skeptical novelty and risk review.
 - Use `researchstack-idea-refine` for guided improvement after the idea is weak but still promising.
@@ -57,18 +59,25 @@ If the user says "what do we already know about this project?" or wants the pack
 
 When the user asks for an end-to-end research push, follow this sequence:
 
-1. Idea finding if the project starts from a broad area rather than a thesis.
-2. Intake and venue target.
-3. Skeptical idea review.
-4. Guided idea refinement if salvageable.
-5. Literature positioning.
-6. Experiment plan.
-7. Experiment operations and result promotion.
-8. Artifact and code audit.
-9. Writing and layout.
-10. Submission gate.
-11. Simulated peer review.
-12. Rebuttal coaching if needed.
+1. Next-step triage if the project is already in flight and the right next move is unclear.
+2. Idea finding if the project starts from a broad area rather than a thesis.
+3. Intake and venue target.
+4. Skeptical idea review.
+5. Guided idea refinement if salvageable.
+6. Literature positioning.
+7. Experiment plan.
+8. Experiment operations and result promotion.
+9. Artifact and code audit.
+10. Writing and layout.
+11. Submission gate.
+12. Simulated peer review.
+13. Rebuttal coaching if needed.
+
+Use this next-step branch whenever the user is unsure what to do next:
+
+1. `researchstack-next-step`
+2. the one or two recommended follow-up skills
+3. `researchstack-learn` after the step if a durable decision was made
 
 Use this idea-finding branch when the user starts with a topic area, not a paper-sized idea:
 
