@@ -39,30 +39,26 @@ function parseArgs(argv) {
 
 const options = parseArgs(process.argv.slice(2));
 const project = computeProjectInfo(options.root, options.source, options.projectName || path.basename(path.resolve(options.root)));
-
-let createdPaths = null;
-if (!options.noCreate) {
-  createdPaths = ensureProjectLayout(project.slug);
-}
-
+const layout = options.noCreate ? null : ensureProjectLayout(project.slug);
 const baseDir = researchstackHome();
+
 const output = {
   slug: project.slug,
+  root: project.root,
   source: project.source,
   normalized_source: project.normalizedSource,
   project_name: project.projectName,
   stable_id: project.stableId,
-  project_dir: createdPaths?.projectDir ?? path.join(baseDir, "projects", project.slug),
-  memory_path: createdPaths?.memoryPath ?? path.join(baseDir, "projects", project.slug, "memory.jsonl"),
-  preferences_path: createdPaths?.preferencesPath ?? path.join(baseDir, "profile", "preferences.json"),
-  state_path: createdPaths?.statePath ?? path.join(baseDir, "projects", project.slug, "state.json")
+  project_dir: layout?.projectDir ?? path.join(baseDir, "projects", project.slug),
+  memory_path: layout?.memoryPath ?? path.join(baseDir, "projects", project.slug, "memory.jsonl"),
+  state_path: layout?.statePath ?? path.join(baseDir, "projects", project.slug, "state.json"),
+  preferences_path: layout?.preferencesPath ?? path.join(baseDir, "profile", "preferences.json")
 };
 
 if (options.printJson) {
   console.log(JSON.stringify(output, null, 2));
 } else {
   console.log(`slug=${output.slug}`);
-  console.log(`source=${output.source}`);
   console.log(`memory_path=${output.memory_path}`);
-  console.log(`preferences_path=${output.preferences_path}`);
+  console.log(`state_path=${output.state_path}`);
 }

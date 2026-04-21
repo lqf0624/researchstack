@@ -1,9 +1,9 @@
-import path from "node:path";
-import { computeProjectInfo, ensureProjectLayout, researchstackHome } from "./lib/researchstack.js";
+import { computeProjectInfo, readMemoryStatus } from "./lib/researchstack.js";
 
 function parseArgs(argv) {
   const options = {
     root: process.cwd(),
+    slug: "",
     source: "",
     projectName: "",
     printJson: false,
@@ -17,6 +17,11 @@ function parseArgs(argv) {
       i += 1;
     } else if (arg.startsWith("--root=")) {
       options.root = arg.slice("--root=".length);
+    } else if (arg === "--slug" && argv[i + 1]) {
+      options.slug = argv[i + 1];
+      i += 1;
+    } else if (arg.startsWith("--slug=")) {
+      options.slug = arg.slice("--slug=".length);
     } else if (arg === "--source" && argv[i + 1]) {
       options.source = argv[i + 1];
       i += 1;
@@ -38,31 +43,26 @@ function parseArgs(argv) {
 }
 
 const options = parseArgs(process.argv.slice(2));
-const project = computeProjectInfo(options.root, options.source, options.projectName || path.basename(path.resolve(options.root)));
+const slug = options.slug || computeProjectInfo(options.root, options.source, options.projectName).slug;
+const status = readMemoryStatus(slug, !options.noCreate);
 
-let createdPaths = null;
-if (!options.noCreate) {
-  createdPaths = ensureProjectLayout(project.slug);
-}
-
-const baseDir = researchstackHome();
 const output = {
-  slug: project.slug,
-  source: project.source,
-  normalized_source: project.normalizedSource,
-  project_name: project.projectName,
-  stable_id: project.stableId,
-  project_dir: createdPaths?.projectDir ?? path.join(baseDir, "projects", project.slug),
-  memory_path: createdPaths?.memoryPath ?? path.join(baseDir, "projects", project.slug, "memory.jsonl"),
-  preferences_path: createdPaths?.preferencesPath ?? path.join(baseDir, "profile", "preferences.json"),
-  state_path: createdPaths?.statePath ?? path.join(baseDir, "projects", project.slug, "state.json")
+  slug,
+  exists: status.exists,
+  memory_entries: status.memoryEntries,
+  current_stage: status.currentStage,
+  last_skill: status.lastSkill,
+  updated_at: status.updatedAt,
+  memory_path: status.memoryPath,
+  state_path: status.statePath
 };
 
 if (options.printJson) {
   console.log(JSON.stringify(output, null, 2));
 } else {
   console.log(`slug=${output.slug}`);
-  console.log(`source=${output.source}`);
-  console.log(`memory_path=${output.memory_path}`);
-  console.log(`preferences_path=${output.preferences_path}`);
+  console.log(`memory_entries=${output.memory_entries}`);
+  console.log(`current_stage=${output.current_stage}`);
+  console.log(`last_skill=${output.last_skill}`);
+  console.log(`updated_at=${output.updated_at}`);
 }

@@ -14,6 +14,34 @@ description: |
 
 Use this root skill as the routing layer for the rest of the pack.
 
+## Runtime Bootstrap
+
+Run this first when the host supports shell preambles:
+
+```bash
+_ROOT=$(git rev-parse --show-toplevel 2>/dev/null || pwd)
+RESEARCHSTACK_ROOT="$HOME/.codex/skills/researchstack"
+[ -d "$_ROOT/.agents/skills/researchstack" ] && RESEARCHSTACK_ROOT="$_ROOT/.agents/skills/researchstack"
+[ -d "$_ROOT/bin" ] && RESEARCHSTACK_ROOT="$_ROOT"
+RSTACK_BIN="$RESEARCHSTACK_ROOT/bin"
+RSTACK_HOST=$("$RSTACK_BIN/researchstack-host-detect" 2>/dev/null || echo "unknown")
+RSTACK_PROJECT=$("$RSTACK_BIN/researchstack-project-slug" --root "$_ROOT" --print-json 2>/dev/null || echo "{}")
+RSTACK_MEMORY=$("$RSTACK_BIN/researchstack-memory-status" --root "$_ROOT" --print-json 2>/dev/null || echo "{}")
+RSTACK_CONFIG=$("$RSTACK_BIN/researchstack-config" show 2>/dev/null || echo "{}")
+echo "HOST: $RSTACK_HOST"
+echo "PROJECT: $RSTACK_PROJECT"
+echo "MEMORY: $RSTACK_MEMORY"
+echo "CONFIG: $RSTACK_CONFIG"
+```
+
+Interpret the bootstrap like this:
+
+- If memory exists and the user is unsure what to do, route to `researchstack-next-step`.
+- If memory is empty and the user only has a broad area, route to `researchstack-idea-finder`.
+- If memory is empty and the user already has a thesis candidate, route to `researchstack-lab-intake`.
+- If routing files are missing in the repo, recommend `bin/researchstack-install-routing`.
+- If installs look stale or duplicated, recommend `bin/researchstack-doctor`.
+
 Read [references/workflow.md](references/workflow.md) first when the request spans multiple stages of a paper.
 Read [references/memory.md](references/memory.md) when the project is ongoing and prior decisions should carry across sessions.
 

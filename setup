@@ -158,3 +158,8 @@ fi
 if [ "$INSTALL_CODEX" -eq 1 ]; then
   install_codex_compatible
 fi
+
+echo "doctor: bun run doctor"
+echo "cleanup backups: bun run cleanup:installs"
+echo "routing: bun run routing:install -- --host claude"
+echo "upgrade: bun run upgrade -- auto"

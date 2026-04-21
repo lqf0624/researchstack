@@ -100,7 +100,7 @@ function rewriteBodyForGeneratedHost(body) {
 }
 
 function copyOptionalResourceDirs(sourceBase, outDir) {
-  for (const resourceDir of ["assets", "scripts", "references", "agents"]) {
+  for (const resourceDir of ["assets", "bin", "scripts", "templates", "references", "agents"]) {
     const sourceDir = join(sourceBase, resourceDir);
     if (existsSync(sourceDir)) {
       cpSync(sourceDir, join(outDir, resourceDir), { recursive: true });

@@ -35,10 +35,27 @@ What they usually do badly is workflow:
 - Source skills for Claude Code style installs
 - Generated `.agents/skills/` distribution for Codex-compatible installs
 - A local memory layer for long-running projects
+- Runtime helpers for host detection, project slugging, doctor checks, and routing install
 - Templates for experiment ops, reproduction, paper layout, figures, and submission gating
 - Example workflows and a realistic example project
 
 Host UIs group the skills under `Researchstack: ...` display names so they are easier to find in long skill lists.
+
+## Runtime and Maintenance
+
+`researchstack` now includes a small runtime layer so the root router can detect host, project slug, and memory status before choosing a workflow.
+
+Useful commands:
+
+```bash
+bun run project:slug -- --root .
+bun run memory:status -- --root .
+bun run doctor
+bun run routing:install -- --host claude
+bun run upgrade -- auto
+```
+
+The `doctor` command checks install state, routing state, managed markers, and duplicate backup skill directories. The routing installer appends a `Researchstack Skill Routing` block to `CLAUDE.md` or `AGENTS.md`.
 
 ## Skill Catalog
 
