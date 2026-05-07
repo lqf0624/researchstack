@@ -12,6 +12,7 @@ It is built for Markdown-based skill hosts such as Codex-compatible tools and Cl
 - design experiments that match the claim
 - keep runs, evidence, and artifacts disciplined
 - write, review, and rebut papers for venues such as ICLR, ASPLOS, SC, NSDI, and SIGCOMM
+- avoid turning every idea into a vague "new abstraction" when the stronger story is measurement, mechanism, system, control, or artifact-driven
 
 ## Why This Exists
 
@@ -27,6 +28,17 @@ What they usually do badly is workflow:
 `researchstack` is built to push in the opposite direction. It routes work through a stricter path:
 
 `idea -> review -> literature -> experiment -> artifact -> writing -> submission -> rebuttal`
+
+## New In The Idea Pipeline
+
+The idea-facing skills now include a stricter systems-paper review loop:
+
+- **Paper-type first**: ideas are classified as measurement, mechanism, system, algorithm/control, architecture/co-design, artifact/evaluation, or abstraction before the contribution is framed.
+- **Abstraction gate**: a "new abstraction" is only treated as publishable when it is operational, changes decisions, predicts failures, can be ablated, and survives strong baselines.
+- **Closest-work gate**: positive idea verdicts require the closest direct competitor, closest adjacent competitor, industrial/open-source baseline, and foundational predecessor.
+- **Novelty boundary**: related-work analysis must state exactly where prior assumptions fail and why the new contribution is more than "this exact combination was not tried."
+- **Story candidate**: idea review and literature mapping now produce a venue story pattern, X/Y/Z statement for systems papers, closest-work contrast sentence, and first decisive figure or experiment.
+- **Grounded writing advice**: systems-paper guidance is backed by named sources such as Levin and Redell, The Many Faces of Systems Research, Irene Zhang, Kayvon Fatahalian, Jennifer Widom, Simon Peyton Jones, Phil Koopman, Armando Fox, John Ousterhout, Butler Lampson, Gernot Heiser, and David Patterson.
 
 ## What You Get
 
@@ -75,11 +87,11 @@ The `doctor` command checks install state, routing state, managed markers, and d
 - `researchstack-lab-intake`
   Turn a rough direction into a paper brief. Good for venue targeting, thesis framing, assumptions, threat model, and immediate next steps.
 - `researchstack-idea-review`
-  Skeptical research-idea review. Use to judge novelty, importance, scope, evidence burden, and likely reviewer objections.
+  Skeptical research-idea review. Use to judge novelty, importance, scope, evidence burden, closest-work risk, story shape, and likely reviewer objections.
 - `researchstack-idea-refine`
   Guided repair loop for ideas that are interesting but not yet publishable.
 - `researchstack-literature-map`
-  Related-work and positioning skill. Use to find the closest comparison set, novelty boundary, and competing narratives.
+  Related-work and positioning skill. Use to find the closest comparison set, industrial/open-source baseline, novelty boundary, story candidate, and competing narratives.
 
 ### Existing Paper Reproduction
 
@@ -163,6 +175,7 @@ Outcome:
 - venue target
 - one-sentence thesis
 - novelty boundary
+- closest-work matrix and story candidate
 - highest-risk unknowns
 
 ### 3. You already have code and results
