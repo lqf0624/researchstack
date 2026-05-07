@@ -78,7 +78,8 @@ function toGeneratedName(sourceDir) {
 
 function rewriteBodyForGeneratedHost(body) {
   return body
-    .replaceAll("(../references/", "(references/")
+    .replaceAll("[../references/", "[../researchstack/references/")
+    .replaceAll("(../references/", "(../researchstack/references/")
     .replaceAll("`next-step`", "`researchstack-next-step`")
     .replaceAll("`lab-intake`", "`researchstack-lab-intake`")
     .replaceAll("`idea-finder`", "`researchstack-idea-finder`")

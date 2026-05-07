@@ -9,6 +9,11 @@ One concrete paper direction, not a whole research program.
 - primary venue:
 - secondary venue:
 
+## Paper Type
+
+Choose one: measurement, mechanism, system, algorithm/control, architecture/co-design, artifact/evaluation, abstraction.
+If abstraction, state which Abstraction Gate checks are already supported by evidence.
+
 ## Why Now
 
 What changed in recent papers, systems, workloads, or deployment practice that makes this timely?
@@ -19,13 +24,30 @@ What changed in recent papers, systems, workloads, or deployment practice that m
 - Paper 2:
 - Paper 3:
 
+## Closest-Work Gate
+
+- closest direct competitor:
+- closest adjacent competitor:
+- industrial/open-source baseline:
+- foundational predecessor:
+- novelty-boundary label: clear gap / crowded but viable / incremental / already done / unknown
+- one-sentence novelty boundary:
+
+## Story Candidate
+
+- likely venue story pattern:
+- X/Y/Z statement if this is a systems paper:
+- closest-work contrast sentence:
+- first figure or first decisive experiment:
+- story driver: measurement / mechanism / system / control / artifact / abstraction
+
 ## One-Paper Thesis
 
 State the thesis in one sentence. It must fit a single paper envelope.
 
 ## Irreducible New Idea
 
-What remains publishable if obvious engineering labor is stripped away?
+What remains publishable if obvious engineering labor is stripped away? Prefer a concrete mechanism, measurement, system design, control rule, or artifact before choosing "new abstraction."
 
 ## Core Claims
 

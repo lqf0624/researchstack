@@ -10,7 +10,7 @@ description: |
 
 # Research Learn
 
-Read [../references/memory.md](references/memory.md) first.
+Read [../researchstack/references/memory.md](../researchstack/references/memory.md) first.
 
 This skill manages the durable memory layer for `researchstack`.
 

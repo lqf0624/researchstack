@@ -10,7 +10,7 @@ description: |
 
 # Peer Review
 
-Read [../references/venues.md](references/venues.md), [../references/review-rubric.md](references/review-rubric.md), and [../references/memory.md](references/memory.md).
+Read [../researchstack/references/venues.md](../researchstack/references/venues.md), [../researchstack/references/review-rubric.md](../researchstack/references/review-rubric.md), [../researchstack/references/conference-story-patterns.md](../researchstack/references/conference-story-patterns.md), [../researchstack/references/expert-advice.md](../researchstack/references/expert-advice.md), and [../researchstack/references/memory.md](../researchstack/references/memory.md).
 
 If prior project memory exists, use it carefully:
 
@@ -33,7 +33,15 @@ Use venue-appropriate standards. For example:
 - ICLR: novelty and empirical rigor.
 - ASPLOS: cross-layer depth and realistic evaluation.
 - SC: scaling credibility and HPC realism.
+- EuroSys/OSDI: system design, implementation realism, operational lessons, and SLO/cost/reliability evidence.
 - NSDI/SIGCOMM: deployment relevance, robustness, and network realism.
+
+Use the expert-advice checks when relevant:
+
+- Levin/Redell: new idea, reality, lessons, focus.
+- Irene Zhang: why/how/results, Y/Z target setting, alternatives for each design choice.
+- Kayvon Fatahalian: goals, non-goals, constraints, design decisions, and causal evaluation.
+- Gernot Heiser: benchmarking crimes.
 
 Be precise about whether a weakness is fatal or fixable.
 

@@ -10,7 +10,7 @@ description: |
 
 # Experiment Ops
 
-Read [../references/workflow.md](references/workflow.md).
+Read [../researchstack/references/workflow.md](../researchstack/references/workflow.md).
 
 Use the bundled templates:
 

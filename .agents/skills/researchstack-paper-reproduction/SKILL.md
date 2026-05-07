@@ -11,7 +11,7 @@ description: |
 
 # Paper Reproduction
 
-Read [../references/workflow.md](references/workflow.md), [../references/venues.md](references/venues.md), and [../references/review-rubric.md](references/review-rubric.md).
+Read [../researchstack/references/workflow.md](../researchstack/references/workflow.md), [../researchstack/references/venues.md](../researchstack/references/venues.md), and [../researchstack/references/review-rubric.md](../researchstack/references/review-rubric.md).
 
 Use the bundled templates:
 

@@ -10,7 +10,7 @@ description: |
 
 # Experiment Design
 
-Read [../references/workflow.md](references/workflow.md), [../references/venues.md](references/venues.md), and [../references/memory.md](references/memory.md).
+Read [../researchstack/references/workflow.md](../researchstack/references/workflow.md), [../researchstack/references/venues.md](../researchstack/references/venues.md), [../researchstack/references/conference-story-patterns.md](../researchstack/references/conference-story-patterns.md), [../researchstack/references/novelty-boundary.md](../researchstack/references/novelty-boundary.md), and [../researchstack/references/memory.md](../researchstack/references/memory.md).
 
 Before proposing new experiments, load relevant memory if it exists:
 
@@ -21,6 +21,18 @@ Before proposing new experiments, load relevant memory if it exists:
 - user preferences about fairness, realism, and reporting.
 
 Design evaluation from claims backward.
+
+First identify the paper type from `conference-story-patterns.md`. Match evidence to that type:
+
+- measurement papers need real phenomena, coverage, controls, and external-validity discussion,
+- mechanism papers need causal ablations and strong tuned baselines,
+- system papers need implementation realism, end-to-end workloads, and operational failure cases,
+- algorithm/control papers need action-ranking or decision-quality evidence, not only final reward,
+- architecture/co-design papers need cross-layer cost/complexity and scaling/sensitivity,
+- artifact/evaluation papers need reproducibility and examples of changed conclusions,
+- abstraction papers need the Abstraction Gate as explicit experiments.
+
+Then identify the closest-work boundary from `novelty-boundary.md`. For each closest competitor, include at least one experiment or baseline configuration that tests whether the claimed gap actually matters. If a strong baseline using one extra heuristic/state variable could close the gap, include that baseline.
 
 For each claim, specify:
 

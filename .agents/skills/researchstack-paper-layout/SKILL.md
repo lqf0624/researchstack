@@ -10,7 +10,7 @@ description: |
 
 # Paper Layout
 
-Read [../references/figures.md](references/figures.md).
+Read [../researchstack/references/figures.md](../researchstack/references/figures.md).
 
 Use the bundled checklists:
 

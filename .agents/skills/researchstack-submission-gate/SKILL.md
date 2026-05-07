@@ -10,7 +10,7 @@ description: |
 
 # Submission Gate
 
-Read [../references/venues.md](references/venues.md) and [../references/review-rubric.md](references/review-rubric.md).
+Read [../researchstack/references/venues.md](../researchstack/references/venues.md), [../researchstack/references/review-rubric.md](../researchstack/references/review-rubric.md), [../researchstack/references/conference-story-patterns.md](../researchstack/references/conference-story-patterns.md), and [../researchstack/references/expert-advice.md](../researchstack/references/expert-advice.md).
 
 Use the bundled gate assets:
 
@@ -35,6 +35,14 @@ Judge whether the paper has:
 - honest scope,
 - consistent writing,
 - no obvious reviewer bait such as inflated claims or weak baselines.
+
+Apply final expert checks:
+
+- Can the main new idea be stated concisely?
+- Is the artifact/prototype reality clear?
+- Are goals, non-goals, constraints, and design alternatives explicit?
+- Does each major experiment support a claim?
+- Are there benchmarking crimes or missing platform details?
 
 Do not confuse "a lot of work" with "ready to submit."
 

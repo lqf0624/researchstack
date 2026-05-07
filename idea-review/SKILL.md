@@ -8,7 +8,7 @@ description: |
 
 # Idea Review
 
-Read [../references/venues.md](../references/venues.md) and [../references/review-rubric.md](../references/review-rubric.md).
+Read [../references/venues.md](../references/venues.md), [../references/review-rubric.md](../references/review-rubric.md), [../references/conference-story-patterns.md](../references/conference-story-patterns.md), [../references/expert-advice.md](../references/expert-advice.md), and [../references/novelty-boundary.md](../references/novelty-boundary.md).
 
 Default posture: skeptical but constructive.
 
@@ -21,12 +21,48 @@ Evaluate the idea on:
 5. Venue fit.
 6. Kill-shot weaknesses.
 
-Output in four blocks:
+Before judging novelty, classify the idea's strongest truthful paper type:
+
+- measurement,
+- mechanism,
+- system,
+- algorithm/control,
+- architecture/co-design,
+- artifact/evaluation,
+- abstraction.
+
+Do not default to "new abstraction" as the contribution. Treat an abstraction as publishable only if it passes the Abstraction Gate in `conference-story-patterns.md`: operational definition, decision relevance, failure prediction, causal isolation, and resistance to strong baselines.
+
+Before giving a positive verdict, run the Closest-Work Gate from `novelty-boundary.md`. Identify:
+
+- closest direct competitor,
+- closest adjacent competitor,
+- industrial or open-source baseline,
+- foundational predecessor.
+
+If current literature is unknown or fast-moving, browse/search before deciding. If you cannot identify the closest work, label novelty as `unknown`, not `promising`.
+
+Output in five blocks:
 
 - Verdict: `promising`, `borderline`, or `not yet publishable`.
 - Strengths: only the few that truly matter.
 - Fatal or major risks: be blunt.
+- Story candidate: the most honest way to tell the paper after related-work pressure.
 - Salvage path: what could convert the idea into a paper.
+
+In the verdict block, include:
+
+- paper type,
+- novelty-boundary label: `clear gap`, `crowded but viable`, `incremental`, `already done`, or `unknown`,
+- one-sentence novelty boundary.
+
+In the story candidate block, include:
+
+- likely venue story pattern from `conference-story-patterns.md`,
+- X/Y/Z statement when this is a systems paper,
+- closest-work contrast sentence,
+- first figure or first decisive experiment,
+- whether the story is measurement, mechanism, system, control, artifact, or abstraction-driven.
 
 Use sharp questions:
 
@@ -35,5 +71,10 @@ Use sharp questions:
 - If the performance gain vanished on a stronger baseline, what would remain publishable?
 - Is the claimed contribution scientific, or only engineering labor?
 - Which one missing experiment would make the whole paper collapse?
+- Is this really an abstraction paper, or is it better framed as measurement, mechanism, system, control, or artifact?
+- Which paper would a reviewer cite first as "this is already close"?
+- If the closest work added one heuristic/state variable, would the novelty disappear?
 
 Avoid fake encouragement. If the idea is weak, say exactly why.
+
+If the best salvage path is only "define a new abstraction", mark the idea as under-specified unless the user already has evidence that the abstraction changes decisions or outcomes.

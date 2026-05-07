@@ -10,7 +10,7 @@ description: |
 
 # Paper Write
 
-Read [../references/memory.md](references/memory.md) before drafting for an ongoing project.
+Read [../researchstack/references/memory.md](../researchstack/references/memory.md), [../researchstack/references/conference-story-patterns.md](../researchstack/references/conference-story-patterns.md), and [../researchstack/references/expert-advice.md](../researchstack/references/expert-advice.md) before drafting for an ongoing project.
 
 Use remembered context when available:
 
@@ -20,6 +20,8 @@ Use remembered context when available:
 - recurring writing weaknesses worth correcting.
 
 Write around contribution and evidence, not around the order the work happened.
+
+Before drafting, classify the paper type from `conference-story-patterns.md`. For systems papers, apply Irene Zhang's Y/Z check from `expert-advice.md`: state which solution X is better for which application Y in which environment Z.
 
 For every section, maintain this contract:
 
@@ -31,7 +33,7 @@ For every section, maintain this contract:
 Use venue-aware emphasis:
 
 - ICLR: motivation, method novelty, baseline fairness, and broader limits.
-- ASPLOS/SC/NSDI/SIGCOMM: system model, design rationale, implementation realism, and evaluation discipline.
+- ASPLOS/SC/EuroSys/OSDI/NSDI/SIGCOMM: system model, design rationale, implementation realism, and evaluation discipline.
 
 Prefer concrete prose:
 

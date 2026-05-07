@@ -8,7 +8,7 @@ description: |
 
 # Lab Intake
 
-Read [../references/workflow.md](../references/workflow.md), [../references/venues.md](../references/venues.md), and [../references/memory.md](../references/memory.md).
+Read [../references/workflow.md](../references/workflow.md), [../references/venues.md](../references/venues.md), [../references/conference-story-patterns.md](../references/conference-story-patterns.md), and [../references/memory.md](../references/memory.md).
 
 If this is not a brand-new project, read project memory and researcher preferences first. Pull in only relevant durable context:
 
@@ -21,12 +21,15 @@ If this is not a brand-new project, read project memory and researcher preferenc
 Produce a compact research brief with:
 
 1. Target venue and why it fits.
-2. One-sentence thesis.
-3. Core technical bet.
-4. Assumptions and threat model.
-5. Required evidence to make the paper believable.
-6. Highest-risk unknowns.
-7. Immediate next experiments or reading tasks.
+2. Paper type: measurement, mechanism, system, algorithm/control, architecture/co-design, artifact/evaluation, or abstraction.
+3. One-sentence thesis.
+4. Core technical bet.
+5. Assumptions and threat model.
+6. Required evidence to make the paper believable.
+7. Highest-risk unknowns.
+8. Immediate next experiments or reading tasks.
+
+Do not default to an abstraction-centric thesis. If the paper type is "abstraction", explicitly check the Abstraction Gate in `conference-story-patterns.md`; otherwise prefer a concrete measurement, mechanism, system, control, or artifact framing.
 
 Push the user toward a falsifiable framing. Replace "this seems useful" with:
 

@@ -9,7 +9,7 @@ description: |
 
 # Idea Finder
 
-Read [../references/workflow.md](../references/workflow.md), [../references/venues.md](../references/venues.md), and [../references/memory.md](../references/memory.md).
+Read [../references/workflow.md](../references/workflow.md), [../references/venues.md](../references/venues.md), [../references/conference-story-patterns.md](../references/conference-story-patterns.md), [../references/novelty-boundary.md](../references/novelty-boundary.md), and [../references/memory.md](../references/memory.md).
 
 If the project already has memory, read only the relevant durable context first:
 
@@ -26,20 +26,26 @@ Required flow:
 1. Clarify the user's area, venue interest, and constraints.
 2. Scan recent papers in the relevant subfield.
 3. Generate a small set of candidate topics.
-4. Run every candidate through `researchstack-idea-review`.
-5. Apply a one-paper envelope filter.
-6. Only then return the surviving topic cards.
+4. For every candidate, run the Closest-Work Gate from `novelty-boundary.md`.
+5. Run every candidate through `researchstack-idea-review`.
+6. Apply a one-paper envelope filter.
+7. Only then return the surviving topic cards.
 
 Hard rules:
 
 - Do not surface unreviewed ideas to the user.
 - Do not return directions that need multiple papers to execute cleanly.
 - Do not reward vague trend-chasing. Anchor every surviving topic to a real gap relative to recent papers.
+- Do not overproduce abstraction papers. First try measurement, mechanism, system, algorithm/control, architecture/co-design, or artifact/evaluation framing.
+- Only surface an abstraction-framed topic if it passes the Abstraction Gate in `conference-story-patterns.md`.
+- Do not surface topics whose closest direct competitor is unknown.
+- Do not surface topics where the novelty boundary is only "this exact combination has not been tried."
 - If no candidate survives review, say so plainly and explain what input needs tightening.
 
 The `researchstack-idea-review` gate is mandatory. Use it to reject:
 
 - novelty that collapses under obvious prior work,
+- novelty whose closest-work boundary is unknown,
 - ideas with evidence burden beyond the user's likely resources,
 - topics that are too small to support a paper,
 - topics that are too large for one paper,
@@ -53,14 +59,17 @@ For each rejected direction, output a short line using [assets/rejected-directio
 Every surviving topic card must include:
 
 1. A one-paper thesis.
-2. Why this is timely now.
-3. Which recent papers frame the gap.
-4. The irreducible new idea.
-5. One to two core claims.
-6. Minimum believable experiment path.
-7. The top reviewer objection.
-8. What is explicitly out of scope.
-9. The `researchstack-idea-review` verdict and why it survived.
+2. Paper type.
+3. Why this is timely now.
+4. Which recent papers frame the gap.
+5. Closest direct/adjacent/industrial/foundational competitors.
+6. Novelty boundary label and one-sentence boundary.
+7. The irreducible new idea or concrete mechanism.
+8. One to two core claims.
+9. Minimum believable experiment path.
+10. The top reviewer objection.
+11. What is explicitly out of scope.
+12. The `researchstack-idea-review` verdict and why it survived.
 
 The goal is not to maximize idea count. The goal is to return a few paper-sized theses that already survived skeptical filtering.
 

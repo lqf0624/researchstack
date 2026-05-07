@@ -10,7 +10,7 @@ description: |
 
 # Next Step
 
-Read [../references/workflow.md](references/workflow.md) and [../references/memory.md](references/memory.md).
+Read [../researchstack/references/workflow.md](../researchstack/references/workflow.md) and [../researchstack/references/memory.md](../researchstack/references/memory.md).
 
 If the project is ongoing, inspect relevant project memory first via the `researchstack-learn` workflow. Pull in only high-signal context:
 
