@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "package_version": "0.3.0",
+  "host": "codex",
+  "generated_name": "researchstack-paper-layout",
+  "source_skill": "researchstack-paper-layout",
+  "content_sha256": "170ac756c8bf70e0509607de6064a258f34bb42c35a329be9aa4323d25f490df"
+}

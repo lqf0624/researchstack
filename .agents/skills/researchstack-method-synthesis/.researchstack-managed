@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "package_version": "0.3.0",
+  "host": "codex",
+  "generated_name": "researchstack-method-synthesis",
+  "source_skill": "researchstack-method-synthesis",
+  "content_sha256": "8939b1af4048a97479dc4cb3401982f0791e9df506cc066f1e9c342f7024e286"
+}

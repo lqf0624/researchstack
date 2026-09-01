@@ -1,6 +1,6 @@
 {
   "name": "researchstack",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "description": "Research-team skills for Codex inspired by gstack's workflow-first architecture.",
@@ -14,6 +14,8 @@
     "routing:install": "bun run scripts/install-routing.js",
     "cleanup:installs": "bun run scripts/cleanup-installs.js",
     "upgrade": "bun run scripts/upgrade.js",
-    "uninstall": "bun run scripts/uninstall.js"
+    "uninstall": "bun run scripts/uninstall.js",
+    "install:skills": "node scripts/install.js",
+    "test": "node --test tests/*.test.js"
   }
 }

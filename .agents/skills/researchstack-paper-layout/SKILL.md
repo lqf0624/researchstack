@@ -6,7 +6,7 @@ description: |
   compliance while preserving technical precision and readability.
 ---
 
-<!-- AUTO-GENERATED for codex. Edit source SKILL.md files, then rerun bun run gen:skill-docs. -->
+<!-- AUTO-GENERATED for codex from researchstack v0.3.0. Edit source SKILL.md files, then regenerate from the source checkout. -->
 
 # Paper Layout
 
@@ -44,3 +44,5 @@ For tables:
 - avoid dense walls of decimals without narrative support.
 
 When reviewing a draft, mark each checklist item as `pass`, `fix`, or `n/a`.
+
+Compile or render the deliverable before handoff. Inspect the actual pages for broken fonts, overflow, clipped content, misplaced floats, unreadable captions, and inconsistent notation. A valid source file alone does not pass layout review.

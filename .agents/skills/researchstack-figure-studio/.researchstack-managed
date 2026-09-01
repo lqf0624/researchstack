@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "package_version": "0.3.0",
+  "host": "codex",
+  "generated_name": "researchstack-figure-studio",
+  "source_skill": "researchstack-figure-studio",
+  "content_sha256": "a2e258e5e0ea1b93421274266052a427a046d2a8bec5f1e10c2c2a2f4bd10f2b"
+}

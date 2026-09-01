@@ -1,30 +1,10 @@
 import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { writeManagedManifest } from "./lib/install-manifest.js";
+import { generatedSkillName, sourceDirs } from "./lib/skill-catalog.js";
 
 const root = process.cwd();
-const referencesDir = join(root, "references");
-
-const sourceDirs = [
-  ".",
-  "next-step",
-  "lab-intake",
-  "idea-finder",
-  "idea-review",
-  "idea-refine",
-  "literature-map",
-  "learn",
-  "paper-reproduction",
-  "experiment-design",
-  "experiment-ops",
-  "artifact-audit",
-  "code-review",
-  "paper-write",
-  "paper-layout",
-  "figure-studio",
-  "submission-gate",
-  "peer-review",
-  "rebuttal-coach"
-];
+const packageVersion = JSON.parse(readFileSync(join(root, "package.json"), "utf8")).version;
 
 function parseArgs(argv) {
   let host = "codex";
@@ -69,13 +49,6 @@ function parseFrontmatter(text) {
   return { name, description, body };
 }
 
-function toGeneratedName(sourceDir) {
-  if (sourceDir === ".") {
-    return "researchstack";
-  }
-  return `researchstack-${sourceDir}`;
-}
-
 function rewriteBodyForGeneratedHost(body) {
   return body
     .replaceAll("[../references/", "[../researchstack/references/")
@@ -83,6 +56,8 @@ function rewriteBodyForGeneratedHost(body) {
     .replaceAll("`next-step`", "`researchstack-next-step`")
     .replaceAll("`lab-intake`", "`researchstack-lab-intake`")
     .replaceAll("`idea-finder`", "`researchstack-idea-finder`")
+    .replaceAll("`method-synthesis`", "`researchstack-method-synthesis`")
+    .replaceAll("`program-map`", "`researchstack-program-map`")
     .replaceAll("`idea-review`", "`researchstack-idea-review`")
     .replaceAll("`idea-refine`", "`researchstack-idea-refine`")
     .replaceAll("`literature-map`", "`researchstack-literature-map`")
@@ -121,7 +96,6 @@ function rewriteGeneratedOpenAiYaml(outDir, sourceSkillName, generatedName) {
 
 function writeGeneratedSkill(outDir, generatedName, sourceSkillName, description, body, host, sourceBase) {
   mkdirSync(outDir, { recursive: true });
-  cpSync(referencesDir, join(outDir, "references"), { recursive: true });
   copyOptionalResourceDirs(sourceBase, outDir);
   rewriteGeneratedOpenAiYaml(outDir, sourceSkillName, generatedName);
   const generated = [
@@ -131,11 +105,17 @@ function writeGeneratedSkill(outDir, generatedName, sourceSkillName, description
     ...description.split("\n").map((line) => `  ${line}`),
     "---",
     "",
-    `<!-- AUTO-GENERATED for ${host}. Edit source SKILL.md files, then rerun bun run gen:skill-docs. -->`,
+    `<!-- AUTO-GENERATED for ${host} from researchstack v${packageVersion}. Edit source SKILL.md files, then regenerate from the source checkout. -->`,
     rewriteBodyForGeneratedHost(body).trimEnd(),
     ""
   ].join("\n");
   writeFileSync(join(outDir, "SKILL.md"), generated, "utf8");
+  writeManagedManifest(outDir, {
+    packageVersion,
+    host,
+    generatedName,
+    sourceSkill: sourceSkillName
+  });
 }
 
 const { host, outRoot } = parseArgs(process.argv.slice(2));
@@ -147,7 +127,7 @@ for (const dir of sourceDirs) {
   const sourcePath = dir === "." ? join(root, "SKILL.md") : join(root, dir, "SKILL.md");
   const content = readFileSync(sourcePath, "utf8");
   const { name, description, body } = parseFrontmatter(content);
-  const generatedName = toGeneratedName(dir);
+  const generatedName = generatedSkillName(dir);
   const outDir = join(outRoot, generatedName);
   const sourceBase = dir === "." ? root : join(root, dir);
   writeGeneratedSkill(outDir, generatedName, name, description, body, host, sourceBase);

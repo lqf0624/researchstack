@@ -6,7 +6,7 @@ description: |
   and help the user answer tough reviews without overclaiming or sounding defensive.
 ---
 
-<!-- AUTO-GENERATED for codex. Edit source SKILL.md files, then rerun bun run gen:skill-docs. -->
+<!-- AUTO-GENERATED for codex from researchstack v0.3.0. Edit source SKILL.md files, then regenerate from the source checkout. -->
 
 # Rebuttal Coach
 

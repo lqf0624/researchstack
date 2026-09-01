@@ -36,14 +36,16 @@ The idea-facing skills now include a stricter systems-paper review loop:
 - **Paper-type first**: ideas are classified as measurement, mechanism, system, algorithm/control, architecture/co-design, artifact/evaluation, or abstraction before the contribution is framed.
 - **Abstraction gate**: a "new abstraction" is only treated as publishable when it is operational, changes decisions, predicts failures, can be ablated, and survives strong baselines.
 - **Closest-work gate**: positive idea verdicts require the closest direct competitor, closest adjacent competitor, industrial/open-source baseline, and foundational predecessor.
-- **Novelty boundary**: related-work analysis must state exactly where prior assumptions fail and why the new contribution is more than "this exact combination was not tried."
+- **Topic-method separation**: a crowded topic is no longer treated as an automatic rejection; topic state and method state are reviewed independently.
+- **Method synthesis**: fixed-topic projects audit established mechanisms, map the method design space, generate alternatives, and test each against rival explanations and strong baselines.
+- **Novelty boundary**: related-work analysis states exactly where prior assumptions fail and whether the contribution changes information, decisions, objectives, coordination, interfaces, or tradeoffs.
 - **Story candidate**: idea review and literature mapping now produce a venue story pattern, X/Y/Z statement for systems papers, closest-work contrast sentence, and first decisive figure or experiment.
 - **Grounded writing advice**: systems-paper guidance is backed by named sources such as Levin and Redell, The Many Faces of Systems Research, Irene Zhang, Kayvon Fatahalian, Jennifer Widom, Simon Peyton Jones, Phil Koopman, Armando Fox, John Ousterhout, Butler Lampson, Gernot Heiser, and David Patterson.
 
 ## What You Get
 
 - A root router skill: `researchstack`
-- 18 focused research skills with `researchstack-*` names for easier search
+- 20 focused research skills with `researchstack-*` names for easier search
 - Source skills for Claude Code style installs
 - Generated `.agents/skills/` distribution for Codex-compatible installs
 - A local memory layer for long-running projects
@@ -67,7 +69,7 @@ bun run routing:install -- --host claude
 bun run upgrade -- auto
 ```
 
-The `doctor` command checks install state, routing state, managed markers, and duplicate backup skill directories. The routing installer appends a `Researchstack Skill Routing` block to `CLAUDE.md` or `AGENTS.md`.
+The `doctor` command is read-only. It checks install count, package version, content fingerprints, routing state, and duplicate backup directories without creating configuration. The routing installer appends a `Researchstack Skill Routing` block to `CLAUDE.md` or `AGENTS.md`.
 
 ## Skill Catalog
 
@@ -77,13 +79,17 @@ The `doctor` command checks install state, routing state, managed markers, and d
   Root router. Use when the request spans multiple stages and you want the pack to choose the right research workflow.
 - `researchstack-next-step`
   Mid-project decision layer. Use when you are stuck and need one clear recommendation for what to do next, which skill to run, and what not to do yet.
+- `researchstack-program-map`
+  Multi-paper planning layer. Use to keep a durable topic stable while separating distinct theses, evidence paths, dependencies, and shared infrastructure.
 - `researchstack-learn`
   Project memory and researcher preference management. Use to store durable decisions such as thesis boundaries, venue choices, reviewer risks, and evaluation rules.
 
 ### Idea Formation
 
 - `researchstack-idea-finder`
-  Start here when you only have a broad area or interest, not a paper-sized idea. It scans recent papers, proposes candidate topics, runs them through mandatory review, and only returns surviving one-paper thesis candidates.
+  Start here only when topic choice is open. It scans recent work, proposes candidate problems, runs them through mandatory review, and returns surviving one-paper theses.
+- `researchstack-method-synthesis`
+  Use when the topic is fixed or similar work exists. It audits established mechanisms and generates defensible method alternatives without defaulting to a topic change.
 - `researchstack-lab-intake`
   Turn a rough direction into a paper brief. Good for venue targeting, thesis framing, assumptions, threat model, and immediate next steps.
 - `researchstack-idea-review`
@@ -161,7 +167,40 @@ Outcome:
 - one-paper thesis candidates
 - a clean handoff into real paper planning
 
-### 2. You have a rough paper idea already
+### 2. Your topic is fixed but the method is weak or crowded
+
+Use:
+
+1. `researchstack-literature-map`
+2. `researchstack-method-synthesis`
+3. `researchstack-idea-review`
+4. `researchstack-experiment-design`
+
+Outcome:
+
+- established-mechanism audit
+- topic state separated from method state
+- several stress-tested method candidates on the same topic
+- discriminating experiments against strong baselines and rival explanations
+
+### 3. One direction should support several papers
+
+Use:
+
+1. `researchstack-program-map`
+2. select one paper candidate
+3. `researchstack-lab-intake`
+4. `researchstack-method-synthesis`
+5. `researchstack-idea-review`
+
+Outcome:
+
+- stable program thesis
+- shared infrastructure map
+- non-duplicative paper portfolio
+- dependencies, stop conditions, and anti-salami-slicing audit
+
+### 4. You have a rough paper idea already
 
 Use:
 
@@ -178,7 +217,7 @@ Outcome:
 - closest-work matrix and story candidate
 - highest-risk unknowns
 
-### 3. You already have code and results
+### 5. You already have code and results
 
 Use:
 
@@ -194,7 +233,7 @@ Outcome:
 - reproducibility gaps
 - implementation risks that could sink the paper
 
-### 4. You want to reproduce an existing paper
+### 6. You want to reproduce an existing paper
 
 Use:
 
@@ -211,7 +250,7 @@ Outcome:
 - reconstruction matrix
 - reviewer-style critique of reproducibility
 
-### 5. You are writing or polishing a submission
+### 7. You are writing or polishing a submission
 
 Use:
 
@@ -260,7 +299,8 @@ Slug rule:
 Requirements:
 
 - Git
-- Bun
+- Node.js 20+ for the cross-platform installer and tests
+- Bun for the existing convenience commands
 - Git Bash is recommended on Windows for running `./setup`
 - WSL only works if your host also scans the WSL-side skills directory, or if you use `--target` to point at a Windows-visible skills path
 
@@ -295,6 +335,12 @@ Install globally:
 git clone https://github.com/lqf0624/researchstack.git ~/researchstack
 cd ~/researchstack
 ./setup --host codex
+```
+
+Cross-platform Node install, recommended on Windows:
+
+```bash
+node scripts/install.js --host codex
 ```
 
 Install into one repo:
@@ -350,8 +396,14 @@ Auto-detect host from a shared checkout:
   Reproduction branch demo from a published paper.
 - [docs/demo-memory-flow.md](docs/demo-memory-flow.md)
   Memory flow demo across repeated sessions.
+- [docs/behavior-acceptance.md](docs/behavior-acceptance.md)
+  Forward-test cases for fixed-topic method synthesis, topic-method novelty separation, multi-paper planning, and timing integrity.
 - [examples/nsdi-tail-latency-paper/README.md](examples/nsdi-tail-latency-paper/README.md)
   Realistic example project artifacts.
+
+## Design Provenance
+
+Version 0.3 incorporates independently written workflow ideas informed by K-Dense scientific-agent-skills, Orchestra AI-Research-SKILLs, ARS-Codex, and the SNL-UCSB paper-writing skill. See [docs/design-provenance.md](docs/design-provenance.md) for the exact boundaries; no upstream code, hooks, or external runtime is bundled.
 
 ## Contributing
 

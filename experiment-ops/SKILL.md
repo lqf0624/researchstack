@@ -8,7 +8,7 @@ description: |
 
 # Experiment Ops
 
-Read [../references/workflow.md](../references/workflow.md).
+Read [../references/workflow.md](../references/workflow.md) and [../references/evidence-contracts.md](../references/evidence-contracts.md).
 
 Use the bundled templates:
 
@@ -25,6 +25,7 @@ For ongoing experiments, enforce:
 3. Separation between exploratory runs and paper-claim runs.
 4. Result logs that explain failures, not only wins.
 5. Promotion rules for when a result is allowed into the paper.
+6. Explicit states for observation, mechanism evidence, controlled result, robust result, and paper-ready claim.
 
 Produce practical artifacts such as:
 
@@ -43,3 +44,4 @@ Be strict about process failures:
 - inconsistent warmup or stopping criteria,
 - comparing runs from mismatched code versions,
 - repeated cherry-picking without negative-result accounting.
+- comparing narrowed timings that omit required dynamic work against full end-to-end baselines.

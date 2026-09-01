@@ -68,7 +68,6 @@ replace_dir() {
     rm -rf "$dst"
   fi
   cp -R "$src" "$dst"
-  touch "$dst/.researchstack-managed"
 }
 
 should_keep_checkout_root() {
@@ -105,24 +104,23 @@ resolve_codex_skills_dir() {
 install_claude() {
   local claude_skills
   claude_skills="$(resolve_claude_skills_dir)"
+  local temp_skills_dir
   local keep_checkout_root=0
   should_keep_checkout_root "$claude_skills" && keep_checkout_root=1
   mkdir -p "$claude_skills"
-  for dir in "$SOURCE_ROOT" "$SOURCE_ROOT"/next-step "$SOURCE_ROOT"/lab-intake "$SOURCE_ROOT"/idea-finder "$SOURCE_ROOT"/idea-review "$SOURCE_ROOT"/idea-refine \
-    "$SOURCE_ROOT"/literature-map "$SOURCE_ROOT"/learn "$SOURCE_ROOT"/paper-reproduction "$SOURCE_ROOT"/experiment-design "$SOURCE_ROOT"/experiment-ops \
-    "$SOURCE_ROOT"/artifact-audit "$SOURCE_ROOT"/code-review "$SOURCE_ROOT"/paper-write \
-    "$SOURCE_ROOT"/paper-layout "$SOURCE_ROOT"/figure-studio "$SOURCE_ROOT"/submission-gate \
-    "$SOURCE_ROOT"/peer-review "$SOURCE_ROOT"/rebuttal-coach; do
-    local base
-    base="$(basename "$dir")"
-    local name="researchstack"
-    if [ "$base" != "researchstack" ]; then
-      name="researchstack-$base"
-    elif [ "$keep_checkout_root" -eq 1 ]; then
+  temp_skills_dir="$(mktemp -d "${TMPDIR:-/tmp}/researchstack-claude.XXXXXX")"
+  (
+    cd "$SOURCE_ROOT"
+    bun run gen:skill-docs --host claude --out "$temp_skills_dir"
+  )
+  for dir in "$temp_skills_dir"/researchstack*; do
+    [ -d "$dir" ] || continue
+    if [ "$keep_checkout_root" -eq 1 ] && [ "$(basename "$dir")" = "researchstack" ]; then
       continue
     fi
-    replace_dir "$dir" "$claude_skills/$name"
+    replace_dir "$dir" "$claude_skills/$(basename "$dir")"
   done
+  rm -rf "$temp_skills_dir"
   echo "researchstack ready (claude)."
   echo "  claude skills: $claude_skills"
 }

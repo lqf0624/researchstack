@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "package_version": "0.3.0",
+  "host": "codex",
+  "generated_name": "researchstack-submission-gate",
+  "source_skill": "researchstack-submission-gate",
+  "content_sha256": "61ac62417ff23d97db3601ef155e3e7492b359d4578ff91d30c0f3f4c063e806"
+}

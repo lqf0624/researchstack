@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "package_version": "0.3.0",
+  "host": "codex",
+  "generated_name": "researchstack-idea-review",
+  "source_skill": "researchstack-idea-review",
+  "content_sha256": "2753b0d931c8fe5440eda658adf11da5d058979f946f9be40217996f5d26b620"
+}

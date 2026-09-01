@@ -1,24 +1,70 @@
 # Research Workflow
 
-Use this shared pipeline across computer systems, networking, and AI papers.
+Use a branch that matches the user's actual research state. Do not force every project through topic discovery.
 
-1. Next-step triage: when the project is in flight and the user is stuck, identify the current stage, blocking mismatch, and best next skill.
-2. Intake: identify venue, claim type, artifact maturity, evaluation budget, and deadline risk.
-3. Idea finding when the user has only a broad area: scan recent papers, generate candidate topics, and discard anything that does not survive skeptical review.
-4. Idea review: test novelty, importance, falsifiability, one-paper scope, and whether the scope matches ICLR, ASPLOS, SC, NSDI, or SIGCOMM.
-5. Idea refine: turn loose concepts into a thesis, threat model, assumptions, and measurable hypotheses.
-6. Literature map: position against the closest 10-20 papers and separate "incremental engineering" from real contribution.
-7. Experiment design: define baselines, ablations, metrics, datasets, workloads, statistical checks, and failure cases before coding more.
-8. Artifact audit: verify code paths, configs, seeds, hardware assumptions, and whether every plotted number is reproducible.
-9. Paper writing: draft around claims and evidence, not around implementation chronology.
-10. Layout and figures: polish captions, tables, notation, and visual hierarchy so reviewers can parse results quickly.
-11. Submission gate: check claim-evidence alignment, missing ablations, weak comparisons, formatting risks, and venue fit.
-12. Peer review and rebuttal: simulate strict reviewers, then answer with evidence, humility, and concrete revisions.
+## Entry Branches
 
-Use evidence ladders when judging strength:
+### Open-topic branch
 
-- Level 1: intuition, anecdotes, or one-off examples
-- Level 2: consistent qualitative patterns
-- Level 3: controlled quantitative experiments
-- Level 4: robust ablations, sensitivity checks, and error analysis
-- Level 5: reproducible artifact with external validity discussion
+Use when the user has an area but is willing to choose among problems:
+
+1. `researchstack-idea-finder`
+2. `researchstack-lab-intake`
+3. `researchstack-idea-review`
+4. `researchstack-literature-map`
+
+### Fixed-topic method branch
+
+Use when the topic is important or already chosen, including when similar work exists:
+
+1. `researchstack-literature-map` for established mechanisms and closest method competitors
+2. `researchstack-method-synthesis` for alternative mechanisms on the same topic
+3. `researchstack-idea-review` for topic-method separated review
+4. `researchstack-experiment-design` for discriminating tests
+
+Do not route back to topic discovery merely because the topic is crowded.
+
+### Research-program branch
+
+Use when a grant direction or durable topic should support several papers:
+
+1. `researchstack-program-map`
+2. select one paper candidate
+3. `researchstack-lab-intake`
+4. `researchstack-method-synthesis`
+5. `researchstack-idea-review`
+
+Apply the one-paper envelope to each candidate, not to the entire research program.
+
+### Existing-paper reproduction branch
+
+Use when work starts from a paper, appendix, or repository:
+
+1. `researchstack-paper-reproduction`
+2. `researchstack-experiment-design`
+3. `researchstack-experiment-ops`
+4. `researchstack-artifact-audit`
+5. `researchstack-peer-review`
+
+## Evidence-Building And Submission Flow
+
+After a thesis and method survive review:
+
+1. Design evaluation backward from claims, method predictions, and rival explanations.
+2. Run the smallest direct test of established mechanisms and the proposed method before building a larger architecture.
+3. Use experiment operations to separate exploratory, mechanism, controlled, robust, and paper-ready results.
+4. Audit artifacts and code before trusting any figure or headline claim.
+5. Draft around claim, mechanism, evidence, and limitation.
+6. Render and inspect figures and layout before delivery.
+7. Run submission gate and independent reviewer lenses.
+8. Prepare rebuttal only from evidence available or explicitly obtainable during the response period.
+
+## Evidence Ladder
+
+- Level 1: observation, intuition, anecdote, or smoke result
+- Level 2: repeatable qualitative pattern or diagnostic evidence
+- Level 3: controlled quantitative result with fair baselines and complete measurement boundary
+- Level 4: mechanism evidence, causal ablation, sensitivity, adverse cases, and uncertainty checks
+- Level 5: paper-ready claim with reproducible provenance and external-validity discussion
+
+Use the source and claim states in [evidence-contracts.md](evidence-contracts.md). Do not promote a result because it looks promising or because the prose is already written.

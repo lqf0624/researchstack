@@ -1,0 +1,6 @@
+interface:
+  display_name: "Researchstack: Method Synthesis"
+  short_description: "Generate defensible new methods while keeping the research topic fixed."
+  default_prompt: "Use $researchstack-method-synthesis to explore method innovations for this fixed research topic."
+policy:
+  allow_implicit_invocation: true

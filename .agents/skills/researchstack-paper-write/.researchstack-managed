@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "package_version": "0.3.0",
+  "host": "codex",
+  "generated_name": "researchstack-paper-write",
+  "source_skill": "researchstack-paper-write",
+  "content_sha256": "579bac9a08da90fd2b8a4b894c036d45b4cec68700333bcf16dbc7df6305f7d3"
+}

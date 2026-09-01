@@ -1,48 +1,45 @@
 ---
 name: researchstack-literature-map
 description: |
-  Related-work and positioning skill for CS, networking, and AI papers. Use when Codex needs to map prior work,
-  identify the closest baselines and competing narratives, clarify novelty boundaries, or build a literature
-  matrix that can support idea review, experiment design, or paper writing.
+  Related-work and mechanism-positioning skill for systems, networking, and AI papers. Use to map competing methods,
+  assumptions, signals, decisions, claims, and evidence; identify established solutions; and define topic and method
+  innovation boundaries with traceable source coverage.
 ---
 
-<!-- AUTO-GENERATED for codex. Edit source SKILL.md files, then rerun bun run gen:skill-docs. -->
+<!-- AUTO-GENERATED for codex from researchstack v0.3.0. Edit source SKILL.md files, then regenerate from the source checkout. -->
 
 # Literature Map
 
-Read [../researchstack/references/novelty-boundary.md](../researchstack/references/novelty-boundary.md).
+Read [../researchstack/references/novelty-boundary.md](../researchstack/references/novelty-boundary.md) and [../researchstack/references/evidence-contracts.md](../researchstack/references/evidence-contracts.md).
 
-Build a compact literature matrix, not a generic survey.
+Build a comparison map, not a chronological survey.
 
-For each relevant prior work, capture:
+Start with any local bibliography, PDF corpus, or prior notes. Label every consequential source by read state. Search current papers, official documentation, mature open-source systems, and production implementations to fill explicit gaps. Do not make detailed method or novelty claims from metadata or abstracts alone.
 
-- problem setting,
+For each relevant work capture:
+
+- stable identifier and read state,
+- problem and semantic unit,
 - method or mechanism,
-- assumptions,
-- evaluation setting,
-- strongest result,
-- limitation most relevant to the current paper.
+- information, action, objective, and coordination boundary,
+- assumptions about time, state, failures, heterogeneity, and scale,
+- resource and deployment cost,
+- evaluation setting and strongest supported result,
+- limitation relevant to the current topic,
+- whether the mechanism is reusable, adaptable, or incompatible.
 
-Group papers by competing explanation, not by publication year alone.
+Always identify the closest topic competitor, closest method competitor, closest adjacent work, strongest industrial/open-source baseline, and foundational predecessor.
 
-Always identify:
+Produce:
 
-1. The two or three papers reviewers will treat as the closest comparison.
-2. The line of work that makes the new idea look incremental.
-3. The line of work that the paper can honestly claim to extend or unify.
-4. The strongest industrial/open-source baseline reviewers will expect.
-5. The foundational predecessor that introduced the core architecture, metric, or mechanism.
-
-When writing positioning guidance, produce:
-
-- a novelty boundary statement,
-- a novelty-boundary label: `clear gap`, `crowded but viable`, `incremental`, `already done`, or `unknown`,
-- a closest-work matrix,
-- a baseline shortlist,
-- likely reviewer objections rooted in prior work,
-- story candidate: likely venue story pattern, X/Y/Z statement if systems, closest-work contrast sentence, and first decisive figure or experiment,
+- topic state and method state,
+- established-mechanism reuse/adapt/fail table,
+- closest-work matrix organized by competing mechanisms or explanations,
+- source passport and explicit coverage limits,
+- baseline shortlist,
+- likely reviewer objections,
+- innovation-boundary statement,
+- method design-space gaps that can feed `researchstack-method-synthesis`,
 - related-work paragraph structure.
 
-If evidence is insufficient to claim novelty, say so directly.
-
-If current literature is fast-moving or the user asks whether an idea has been done, browse/search. Do not rely only on memory for novelty claims.
+If evidence is insufficient, label the relevant state `unknown`. Do not infer that a topic is exhausted from paper count, or that a method is novel because its application name differs.

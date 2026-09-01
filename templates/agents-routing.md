@@ -5,7 +5,9 @@ Use `researchstack` as the root router when a request spans multiple stages of a
 Use the more specific skill when the stage is already clear:
 
 - `researchstack-next-step`
+- `researchstack-program-map`
 - `researchstack-idea-finder`
+- `researchstack-method-synthesis`
 - `researchstack-lab-intake`
 - `researchstack-idea-review`
 - `researchstack-idea-refine`

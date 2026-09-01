@@ -55,7 +55,7 @@ Do not equate "result mismatch" with "paper is wrong" unless the evidence is str
 
 When a repository is available, connect this skill to:
 
-- `experiment-design` for the reproduced experiment matrix,
-- `experiment-ops` for run tracking,
-- `artifact-audit` for provenance and credibility,
-- `peer-review` for reviewer-style reproducibility critique.
+- `researchstack-experiment-design` for the reproduced experiment matrix,
+- `researchstack-experiment-ops` for run tracking,
+- `researchstack-artifact-audit` for provenance and credibility,
+- `researchstack-peer-review` for reviewer-style reproducibility critique.

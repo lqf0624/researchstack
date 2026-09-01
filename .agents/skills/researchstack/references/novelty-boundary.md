@@ -1,83 +1,149 @@
-# Novelty Boundary And Closest-Work Gate
+# Innovation Boundary And Closest-Work Gate
 
-Use this reference before approving or refining any research idea. The goal is to answer three questions early:
+Use this reference before approving, rejecting, or refining an idea. Similarity of topic is evidence about the competitive field, not proof that the new idea is incremental.
 
-1. Has someone already done this?
-2. If not, how close did prior work get?
-3. What exact boundary makes the new paper more than an incremental variant?
+Treat a research **idea** as the tuple `(topic, method, claim, evidence path)`. Do not use `idea` as a synonym for `topic`.
+
+## Keep Four Objects Separate
+
+- **Topic or problem**: the phenomenon, bottleneck, workload, or deployment problem being studied.
+- **Method or mechanism**: the information, decisions, algorithm, protocol, interface, or system design used to address it.
+- **Claim**: what the paper says the method or study establishes.
+- **Evidence path**: the measurements, baselines, ablations, and artifacts needed to support the claim.
+
+Two papers may study the same topic and still differ materially in method. Conversely, a new topic label does not make a familiar method novel.
+
+## Established-Mechanism Audit
+
+Before inventing a new mechanism:
+
+1. State the exact problem, semantic constraints, performance target, and resource constraints.
+2. Search relevant papers, official documentation, mature open-source systems, and production implementations.
+3. Record which established mechanisms can be reused directly, which need adaptation, and which fail under the stated constraints.
+4. Preserve the real semantic and measurement boundary. Moving required work outside the boundary, renaming it, or batching it away is not method innovation.
+5. Identify the smallest direct experiment that could validate an established mechanism before proposing a larger custom architecture.
+
+Treat a borrowed implementation technique as prior art or enabling engineering. The research contribution must be the new method, new causal insight, new system contract, or new evidence enabled by the adaptation.
 
 ## Closest-Work Gate
 
-Before giving a positive idea verdict, identify at least:
+Identify at least:
 
-- **Closest direct competitor**: same problem and similar mechanism or evaluation target.
-- **Closest adjacent competitor**: different mechanism but same reviewer mental bucket.
-- **Industrial or open-source baseline**: production system, deployed stack, benchmark, or common engineering practice that reviewers will expect.
-- **Foundational predecessor**: older work that introduced the core architecture, metric, or scheduling idea.
+- **Closest direct competitor**: same problem with the most similar mechanism or claim.
+- **Closest method competitor**: the work with the most similar decision logic, information, or architecture even if its application differs.
+- **Closest adjacent competitor**: a different mechanism in the same reviewer mental bucket.
+- **Industrial or open-source baseline**: the production system, deployed stack, benchmark, or engineering practice reviewers will expect.
+- **Foundational predecessor**: the work that introduced the core architecture, metric, or mechanism family.
 
-For each closest work, write:
+For each work, compare:
 
-- what it already solves,
-- what assumption it makes,
-- what it does not model or cannot handle,
-- whether that gap is essential or just an engineering omission,
-- what experiment would prove the gap matters.
+- problem and semantic unit,
+- available information and assumptions,
+- action or control granularity,
+- mechanism and optimization objective,
+- coordination or layer boundary,
+- timing, state, failure, and heterogeneity model,
+- resource cost and deployment lifecycle,
+- claim and evidence path.
 
-If this cannot be done from memory, browse or search current literature. Do not invent novelty boundaries.
+Do not reduce this comparison to whether two titles or topics sound alike.
 
-## Novelty Boundary Statement
+## Topic-Method Innovation Matrix
 
-End related-work analysis with one sentence of this form:
+Judge topic saturation and method difference separately:
 
-> Prior work X solves A under assumptions B; this paper studies C, where B fails because D, and contributes E validated by F.
+| Topic state | Method state | Interpretation |
+| --- | --- | --- |
+| new or under-measured | familiar | potentially valuable measurement, correction, or artifact paper; do not claim method novelty |
+| crowded | materially different | potentially strong mechanism or system paper if the difference changes decisions or the tradeoff frontier |
+| crowded | adapted established mechanism | viable only if the adaptation is necessary, non-obvious, and causally validated under the new constraints |
+| crowded | parameter or packaging variation | incremental unless it exposes a new principle or capability |
+| new label | same mechanism and evidence | not novel merely because the application or terminology changed |
 
-Reject boundaries of these weak forms:
+A topic being crowded should trigger a method-design-space analysis, not an automatic topic change.
 
-- "Prior work did not consider our exact combination of knobs."
-- "Prior work uses a different algorithm, but the same signal would probably work."
-- "Prior work is not open source, so we reimplemented something similar."
-- "Prior work targets a different benchmark, but the underlying setting is the same."
-- "Prior work ignores this detail, but no experiment shows the detail changes decisions."
+## Method-Delta Test
 
-## Related-Work Table Columns
+A proposed method has a potentially meaningful delta when it changes at least one consequential dimension and explains why that change is necessary:
 
-For crowded areas, require a compact matrix with columns such as:
+- information or signal available to the decision,
+- action space or scheduling granularity,
+- objective, constraint, or fairness criterion,
+- coordination scope or ownership boundary,
+- temporal model, state, or feedback loop,
+- hardware/runtime/compiler/network interface,
+- failure, heterogeneity, or scaling model,
+- achievable tradeoff frontier or capability.
 
-- work,
-- setting,
-- control variable or mechanism,
-- assumptions,
-- deployment realism,
-- whether it handles delays/failures/state/heterogeneity,
-- evidence type,
-- why it is not enough.
+Then run collapse tests:
 
-Customize columns to the domain. The important point is to expose the exact missing dimension, not to list many papers.
+- Could the closest baseline absorb the method with one parameter, heuristic, or state variable?
+- Is the difference only implementation effort, framework choice, or repackaging?
+- Does the method change a decision, prediction, guarantee, or reachable operating point?
+- Is a required cost hidden outside the end-to-end lifecycle or timed region?
+- Can a causal ablation isolate the proposed mechanism from tuning and engineering quality?
 
-## Story Selection After Related Work
+If the delta survives, the topic may remain fixed. If it collapses, route to method synthesis before recommending a new topic.
 
-Choose the paper story from the gap:
+## Mechanism And Rival Predictions
 
-- If prior work has the same mechanism but weak measurements: use a **measurement/correction** story.
-- If prior work has the right observation but no deployable design: use a **system/mechanism** story.
-- If prior work has a strong mechanism but wrong objective or signal: use a **wrong metric/control signal** story.
-- If prior work solves steady state but not dynamic conditions: use a **wrong timing/failure model** story.
-- If prior work is strong and only misses a minor detail: downgrade the idea or look for a sharper setting.
+For each serious method candidate, record:
 
-## Mandatory Review Questions
+1. the bottleneck or failure it targets,
+2. the mechanism chain from intervention to outcome,
+3. the observable prediction if the mechanism is correct,
+4. at least one rival explanation,
+5. an experiment where the method and rival predict different outcomes,
+6. an outcome that would falsify or materially weaken the method claim.
 
-- Which paper would a reviewer cite in the first sentence of the weakness section?
-- If that paper added one heuristic or one state variable, would it erase the novelty?
-- Is the new claim about a phenomenon, a mechanism, an implementation, a metric, or only a framing?
-- What is the strongest baseline that uses the same raw inputs but not the proposed method?
-- What result would make the paper unnecessary?
+Do not promote a plausible story to a method contribution without discriminating evidence.
+
+## Innovation Boundary Statement
+
+Use a statement that separates topic and method:
+
+> Prior work X studies problem A using mechanism B under assumptions C. We keep problem A fixed but change D in the information, action, objective, or system boundary because C fails under condition E; the resulting mechanism F predicts G and is distinguished from B by experiment H.
+
+For measurement or correction papers, use:
+
+> Prior work studies A with method B, but its evidence assumes C. We show that C changes conclusion D under condition E and provide measurement or evaluation method F.
+
+Reject weak boundaries such as:
+
+- "No one tried this exact combination."
+- "The topic is new, so the method is novel."
+- "The algorithm name differs, but its information and decisions are equivalent."
+- "The implementation is faster" when required work moved outside the measured lifecycle.
+- "Prior work did not mention this detail" without evidence that the detail changes decisions or conclusions.
 
 ## Outcome Labels
 
-Use these labels in idea review:
+Report two labels instead of one overloaded novelty verdict.
 
-- **Clear gap**: prior work misses an essential condition and the proposed paper has a plausible decisive experiment.
-- **Crowded but viable**: prior work is close, but the new story can survive with strong baselines and careful scope.
-- **Incremental**: the gap is a knob, metric, or implementation detail that a strong baseline could absorb.
-- **Already done**: a prior paper has the same problem, mechanism, and evidence path.
-- **Unknown**: the literature check is insufficient; do not give a strong positive verdict.
+**Topic state**:
+
+- `open`: important behavior or setting remains poorly understood.
+- `crowded`: many works study the same problem.
+- `mature`: problem and standard solution space are well covered.
+- `unknown`: search coverage is insufficient.
+
+**Method state**:
+
+- `distinct`: consequential method delta with a plausible mechanism and decisive comparison.
+- `adaptation with research content`: established technique requires a non-obvious adaptation that changes behavior under the target constraints.
+- `incremental`: delta is likely absorbable by tuning, a minor heuristic, or ordinary engineering.
+- `already done`: closest work matches the problem, method, assumptions, and claim closely enough that the proposed contribution collapses.
+- `under-specified`: no concrete method or discriminating prediction yet.
+- `unknown`: evidence about closest work is insufficient.
+
+Use `already done` only when the method-level match is established. Topic overlap alone is never enough.
+
+## Required Response To A Weak Method
+
+When the topic matters but the current method is weak:
+
+1. preserve the user's topic unless they ask to explore alternatives,
+2. state exactly where the current method collapses into prior work,
+3. route to `researchstack-method-synthesis`,
+4. generate alternative mechanisms on the same topic,
+5. recommend changing topic only when the relevant method design space is also exhausted under the user's constraints.

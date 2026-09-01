@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "package_version": "0.3.0",
+  "host": "codex",
+  "generated_name": "researchstack-program-map",
+  "source_skill": "researchstack-program-map",
+  "content_sha256": "f106fd30ab7522329d702199e708c93cd54e068c3e381dd915bdff962d252a4b"
+}

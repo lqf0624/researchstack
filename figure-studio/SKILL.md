@@ -40,3 +40,7 @@ Useful outputs:
 Call out when a figure is doing cosmetic work rather than evidentiary work.
 
 If the user has not designed figures yet, start with the storyboard template before recommending plot types.
+
+When specialized visual skills are available, route quantitative results to a data-plotting workflow and mechanisms or architectures to a paper-diagram workflow. Preserve the evidence plan and caption contract during the handoff.
+
+Before delivery, render the actual figure and inspect it. Verify text rendering, overlap, arrow scale, legend and axis readability, panel consistency, and whether the visual units match the paper terminology. File existence or a successful export is not sufficient validation.

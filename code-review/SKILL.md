@@ -17,6 +17,7 @@ Prioritize:
 3. Reproducibility and configuration hazards.
 4. Benchmark or evaluation bias.
 5. Missing tests around scientific assumptions.
+6. Performance-boundary changes presented as mechanism improvements.
 
 Look for:
 
@@ -28,5 +29,7 @@ Look for:
 - plotting or aggregation bugs,
 - misuse of randomness and seeds,
 - benchmark harness changes that break comparability.
+- caching or precomputation whose reuse assumptions do not hold for dynamic inputs,
+- required work moved outside the timed path without an end-to-end metric.
 
 If no severe bug is found, still report residual validity risks.

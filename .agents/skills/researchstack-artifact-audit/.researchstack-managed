@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "package_version": "0.3.0",
+  "host": "codex",
+  "generated_name": "researchstack-artifact-audit",
+  "source_skill": "researchstack-artifact-audit",
+  "content_sha256": "449c53894d5eebb138f81f1e58688d16a8cd3aa635e6df973e54716bff552813"
+}

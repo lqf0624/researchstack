@@ -6,7 +6,7 @@ description: |
   reviewer risks, or repeated user preferences so later sessions become more context-aware.
 ---
 
-<!-- AUTO-GENERATED for codex. Edit source SKILL.md files, then rerun bun run gen:skill-docs. -->
+<!-- AUTO-GENERATED for codex from researchstack v0.3.0. Edit source SKILL.md files, then regenerate from the source checkout. -->
 
 # Research Learn
 
@@ -32,7 +32,9 @@ Default workflow:
 2. Read `~/.researchstack/projects/<slug>/memory.jsonl` if it exists.
 3. Read `~/.researchstack/profile/preferences.json` if it exists.
 4. Group what is known into:
+   - stable program topic and paper portfolio,
    - thesis and scope,
+   - topic state, method state, and rejected method candidates,
    - venue and reviewer risks,
    - experiment rules,
    - artifact or reproducibility rules,
@@ -45,6 +47,7 @@ When writing memory:
 - prefer 1 to 3 high-signal entries over bulk dumping,
 - keep titles short and searchable,
 - store decisions, not meeting transcript noise,
+- distinguish a program-level decision from a one-paper thesis,
 - mark `source` honestly,
 - use `confidence: low` for tentative inferences.
 

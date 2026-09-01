@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "package_version": "0.3.0",
+  "host": "codex",
+  "generated_name": "researchstack-lab-intake",
+  "source_skill": "researchstack-lab-intake",
+  "content_sha256": "a85c55a62e64faa56ce0d1f3e794c2ae374e9729d2df8fa7ef31f608507cf889"
+}

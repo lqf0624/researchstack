@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "package_version": "0.3.0",
+  "host": "codex",
+  "generated_name": "researchstack-idea-finder",
+  "source_skill": "researchstack-idea-finder",
+  "content_sha256": "db125417ee162b7aefe1d558dc9b58a1c28da6d03376c1ba431356f87fe291d0"
+}

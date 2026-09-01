@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "package_version": "0.3.0",
+  "host": "codex",
+  "generated_name": "researchstack-learn",
+  "source_skill": "researchstack-learn",
+  "content_sha256": "663d63276a7d8449e41e2d8f84de18182a46fafb021f4ba59b9310f9be931985"
+}

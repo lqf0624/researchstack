@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "package_version": "0.3.0",
+  "host": "codex",
+  "generated_name": "researchstack-peer-review",
+  "source_skill": "researchstack-peer-review",
+  "content_sha256": "b6b7f3310d9493cd94f0f21b2bbd28e4b232cc933b6dc5379a221697c3a971a1"
+}

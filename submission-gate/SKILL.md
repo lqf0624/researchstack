@@ -8,7 +8,7 @@ description: |
 
 # Submission Gate
 
-Read [../references/venues.md](../references/venues.md), [../references/review-rubric.md](../references/review-rubric.md), [../references/conference-story-patterns.md](../references/conference-story-patterns.md), and [../references/expert-advice.md](../references/expert-advice.md).
+Read [../references/venues.md](../references/venues.md), [../references/review-rubric.md](../references/review-rubric.md), [../references/conference-story-patterns.md](../references/conference-story-patterns.md), [../references/expert-advice.md](../references/expert-advice.md), and [../references/evidence-contracts.md](../references/evidence-contracts.md).
 
 Use the bundled gate assets:
 
@@ -29,6 +29,7 @@ Output:
 Judge whether the paper has:
 
 - a clear central contribution,
+- a separately stated topic state and method state,
 - enough evidence for its strongest claim,
 - honest scope,
 - consistent writing,
@@ -40,6 +41,9 @@ Apply final expert checks:
 - Is the artifact/prototype reality clear?
 - Are goals, non-goals, constraints, and design alternatives explicit?
 - Does each major experiment support a claim?
+- Does each method-novelty claim survive the closest-method comparison rather than only a topic comparison?
+- Are consequential citations full-text or method verified at the level needed by the claim?
+- Does the headline performance result include all required dynamic lifecycle work?
 - Are there benchmarking crimes or missing platform details?
 
 Do not confuse "a lot of work" with "ready to submit."

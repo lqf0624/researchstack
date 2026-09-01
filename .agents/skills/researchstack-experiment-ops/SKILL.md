@@ -6,11 +6,11 @@ description: |
   day-to-day experimental workflow stays publication-grade instead of devolving into ad hoc trial-and-error.
 ---
 
-<!-- AUTO-GENERATED for codex. Edit source SKILL.md files, then rerun bun run gen:skill-docs. -->
+<!-- AUTO-GENERATED for codex from researchstack v0.3.0. Edit source SKILL.md files, then regenerate from the source checkout. -->
 
 # Experiment Ops
 
-Read [../researchstack/references/workflow.md](../researchstack/references/workflow.md).
+Read [../researchstack/references/workflow.md](../researchstack/references/workflow.md) and [../researchstack/references/evidence-contracts.md](../researchstack/references/evidence-contracts.md).
 
 Use the bundled templates:
 
@@ -27,6 +27,7 @@ For ongoing experiments, enforce:
 3. Separation between exploratory runs and paper-claim runs.
 4. Result logs that explain failures, not only wins.
 5. Promotion rules for when a result is allowed into the paper.
+6. Explicit states for observation, mechanism evidence, controlled result, robust result, and paper-ready claim.
 
 Produce practical artifacts such as:
 
@@ -45,3 +46,4 @@ Be strict about process failures:
 - inconsistent warmup or stopping criteria,
 - comparing runs from mismatched code versions,
 - repeated cherry-picking without negative-result accounting.
+- comparing narrowed timings that omit required dynamic work against full end-to-end baselines.

@@ -30,7 +30,9 @@ Default workflow:
 2. Read `~/.researchstack/projects/<slug>/memory.jsonl` if it exists.
 3. Read `~/.researchstack/profile/preferences.json` if it exists.
 4. Group what is known into:
+   - stable program topic and paper portfolio,
    - thesis and scope,
+   - topic state, method state, and rejected method candidates,
    - venue and reviewer risks,
    - experiment rules,
    - artifact or reproducibility rules,
@@ -43,6 +45,7 @@ When writing memory:
 - prefer 1 to 3 high-signal entries over bulk dumping,
 - keep titles short and searchable,
 - store decisions, not meeting transcript noise,
+- distinguish a program-level decision from a one-paper thesis,
 - mark `source` honestly,
 - use `confidence: low` for tentative inferences.
 

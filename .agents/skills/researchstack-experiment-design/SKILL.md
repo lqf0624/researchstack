@@ -6,11 +6,11 @@ description: |
   tests so that a paper's claims are actually supported.
 ---
 
-<!-- AUTO-GENERATED for codex. Edit source SKILL.md files, then rerun bun run gen:skill-docs. -->
+<!-- AUTO-GENERATED for codex from researchstack v0.3.0. Edit source SKILL.md files, then regenerate from the source checkout. -->
 
 # Experiment Design
 
-Read [../researchstack/references/workflow.md](../researchstack/references/workflow.md), [../researchstack/references/venues.md](../researchstack/references/venues.md), [../researchstack/references/conference-story-patterns.md](../researchstack/references/conference-story-patterns.md), [../researchstack/references/novelty-boundary.md](../researchstack/references/novelty-boundary.md), and [../researchstack/references/memory.md](../researchstack/references/memory.md).
+Read [../researchstack/references/workflow.md](../researchstack/references/workflow.md), [../researchstack/references/venues.md](../researchstack/references/venues.md), [../researchstack/references/conference-story-patterns.md](../researchstack/references/conference-story-patterns.md), [../researchstack/references/novelty-boundary.md](../researchstack/references/novelty-boundary.md), [../researchstack/references/evidence-contracts.md](../researchstack/references/evidence-contracts.md), and [../researchstack/references/memory.md](../researchstack/references/memory.md).
 
 Before proposing new experiments, load relevant memory if it exists:
 
@@ -21,6 +21,8 @@ Before proposing new experiments, load relevant memory if it exists:
 - user preferences about fairness, realism, and reporting.
 
 Design evaluation from claims backward.
+
+For a method paper, also design from mechanism and rival predictions backward. State what the proposed mechanism, the closest method competitor, and at least one rival explanation predict before inspecting the decisive result.
 
 First identify the paper type from `conference-story-patterns.md`. Match evidence to that type:
 
@@ -42,6 +44,8 @@ For each claim, specify:
 - what ablation isolates the mechanism,
 - what stress case could invalidate the claim.
 
+Before building a large custom architecture, include the smallest direct experiment that tests whether a mature established mechanism already solves the problem under the same semantic, resource, and lifecycle constraints.
+
 Produce an experiment matrix with columns:
 
 - claim,
@@ -50,6 +54,9 @@ Produce an experiment matrix with columns:
 - baseline,
 - ablation,
 - expected outcome,
+- rival prediction,
+- falsifying or weakening outcome,
+- full lifecycle boundary,
 - failure interpretation.
 
 Default rigor checks:
@@ -57,6 +64,7 @@ Default rigor checks:
 - fair baseline tuning and budget disclosure,
 - scale sensitivity,
 - compute or hardware cost,
+- planning, packing, metadata, synchronization, waiting, and output work required by the real deployment lifecycle,
 - robustness to parameter changes,
 - tail or worst-case behavior if relevant,
 - negative results worth reporting.
@@ -66,6 +74,7 @@ Flag common paper-killing problems:
 - main claim depends on one cherry-picked setup,
 - ablations do not isolate causal factors,
 - systems speedups ignore resource cost,
+- dynamic required work is moved outside the timed region or comparison boundary,
 - ML comparisons use stale or weak baselines,
 - networking evaluation omits adverse or dynamic conditions.
 

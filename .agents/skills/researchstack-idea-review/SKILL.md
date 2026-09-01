@@ -1,82 +1,41 @@
 ---
 name: researchstack-idea-review
 description: |
-  Skeptical review skill for research ideas. Use when Codex should act like a sharp program committee member or
-  senior coauthor and judge whether an idea is novel, important, scoped correctly, and likely to survive strict
-  review at venues such as ICLR, ASPLOS, SC, NSDI, or SIGCOMM.
+  Skeptical but generative review for systems, networking, and AI ideas. Use to judge topic significance, method novelty,
+  mechanism plausibility, evidence burden, scope, and venue fit without treating a crowded topic as automatic rejection.
 ---
 
-<!-- AUTO-GENERATED for codex. Edit source SKILL.md files, then rerun bun run gen:skill-docs. -->
+<!-- AUTO-GENERATED for codex from researchstack v0.3.0. Edit source SKILL.md files, then regenerate from the source checkout. -->
 
 # Idea Review
 
-Read [../researchstack/references/venues.md](../researchstack/references/venues.md), [../researchstack/references/review-rubric.md](../researchstack/references/review-rubric.md), [../researchstack/references/conference-story-patterns.md](../researchstack/references/conference-story-patterns.md), [../researchstack/references/expert-advice.md](../researchstack/references/expert-advice.md), and [../researchstack/references/novelty-boundary.md](../researchstack/references/novelty-boundary.md).
+Read [../researchstack/references/venues.md](../researchstack/references/venues.md), [../researchstack/references/review-rubric.md](../researchstack/references/review-rubric.md), [../researchstack/references/conference-story-patterns.md](../researchstack/references/conference-story-patterns.md), [../researchstack/references/expert-advice.md](../researchstack/references/expert-advice.md), [../researchstack/references/novelty-boundary.md](../researchstack/references/novelty-boundary.md), and [../researchstack/references/evidence-contracts.md](../researchstack/references/evidence-contracts.md).
 
-Default posture: skeptical but constructive.
+Default posture: skeptical, specific, and generative.
 
-Evaluate the idea on:
+## Review Order
 
-1. Problem significance.
-2. Novelty relative to obvious prior directions.
-3. Technical depth.
-4. Evidence burden.
-5. Venue fit.
-6. Kill-shot weaknesses.
+1. State the topic, semantic unit, constraints, and strongest truthful paper type.
+2. Audit established mechanisms before crediting a new one.
+3. Identify closest topic, method, adjacent, industrial/open-source, and foundational work.
+4. Assign separate topic and method states from `novelty-boundary.md`.
+5. Test the mechanism chain, rival explanations, evidence burden, and deployment realism.
+6. Decide whether the idea is publishable, needs a new method on the same topic, or is infeasible under current constraints.
 
-Before judging novelty, classify the idea's strongest truthful paper type:
+If the contribution is framed as an abstraction, apply the Abstraction Gate from `conference-story-patterns.md`. Do not use abstraction language to hide an under-specified method.
 
-- measurement,
-- mechanism,
-- system,
-- algorithm/control,
-- architecture/co-design,
-- artifact/evaluation,
-- abstraction.
+Topic overlap alone cannot justify `incremental` or `already done`. Use `already done` only when problem, method, assumptions, and claim substantially match. A crowded topic with a distinct method may be stronger than a new topic with a familiar method.
 
-Do not default to "new abstraction" as the contribution. Treat an abstraction as publishable only if it passes the Abstraction Gate in `conference-story-patterns.md`: operational definition, decision relevance, failure prediction, causal isolation, and resistance to strong baselines.
+## Output
 
-Before giving a positive verdict, run the Closest-Work Gate from `novelty-boundary.md`. Identify:
+- **Verdict**: `promising`, `borderline`, or `not yet publishable`.
+- **Innovation profile**: paper type, topic state, method state, and one-sentence boundary.
+- **Strengths**: only those that survive closest-work comparison.
+- **Fatal or major risks**: distinguish problem, method, evidence, and feasibility risks.
+- **Mechanism test**: causal chain, primary prediction, rival explanation, discriminating experiment, and falsifier.
+- **Story candidate**: venue story pattern, systems X/Y/Z statement, closest-work contrast, and first decisive figure or experiment.
+- **Salvage path**: concrete next move.
 
-- closest direct competitor,
-- closest adjacent competitor,
-- industrial or open-source baseline,
-- foundational predecessor.
+When the topic matters but the proposed method collapses into a strong baseline, route to `researchstack-method-synthesis` and preserve the topic. Recommend a new topic only after the relevant method space is audited and no credible candidate survives.
 
-If current literature is unknown or fast-moving, browse/search before deciding. If you cannot identify the closest work, label novelty as `unknown`, not `promising`.
-
-Output in five blocks:
-
-- Verdict: `promising`, `borderline`, or `not yet publishable`.
-- Strengths: only the few that truly matter.
-- Fatal or major risks: be blunt.
-- Story candidate: the most honest way to tell the paper after related-work pressure.
-- Salvage path: what could convert the idea into a paper.
-
-In the verdict block, include:
-
-- paper type,
-- novelty-boundary label: `clear gap`, `crowded but viable`, `incremental`, `already done`, or `unknown`,
-- one-sentence novelty boundary.
-
-In the story candidate block, include:
-
-- likely venue story pattern from `conference-story-patterns.md`,
-- X/Y/Z statement when this is a systems paper,
-- closest-work contrast sentence,
-- first figure or first decisive experiment,
-- whether the story is measurement, mechanism, system, control, artifact, or abstraction-driven.
-
-Use sharp questions:
-
-- What is the paper's irreducible new idea?
-- What prior paper will reviewers compare it to first?
-- If the performance gain vanished on a stronger baseline, what would remain publishable?
-- Is the claimed contribution scientific, or only engineering labor?
-- Which one missing experiment would make the whole paper collapse?
-- Is this really an abstraction paper, or is it better framed as measurement, mechanism, system, control, or artifact?
-- Which paper would a reviewer cite first as "this is already close"?
-- If the closest work added one heuristic/state variable, would the novelty disappear?
-
-Avoid fake encouragement. If the idea is weak, say exactly why.
-
-If the best salvage path is only "define a new abstraction", mark the idea as under-specified unless the user already has evidence that the abstraction changes decisions or outcomes.
+Do not offer fake encouragement, but do not use novelty review only as a veto. A senior coauthor must explain how a weak idea could become a stronger method, measurement, system, control, co-design, or artifact paper.

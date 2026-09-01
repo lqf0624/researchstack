@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "package_version": "0.3.0",
+  "host": "codex",
+  "generated_name": "researchstack",
+  "source_skill": "researchstack",
+  "content_sha256": "4f9c039f2f0978d55ce8ee20978c15a71bc3a7bb5618589a5d2aaa0acafc027b"
+}

@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "package_version": "0.3.0",
+  "host": "codex",
+  "generated_name": "researchstack-literature-map",
+  "source_skill": "researchstack-literature-map",
+  "content_sha256": "bb97e37fb7ead9d5d8585d1b620b9fa34b071551958894f626b361e7580a534f"
+}

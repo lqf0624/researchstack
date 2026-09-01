@@ -27,11 +27,21 @@ What changed in recent papers, systems, workloads, or deployment practice that m
 ## Closest-Work Gate
 
 - closest direct competitor:
+- closest method competitor:
 - closest adjacent competitor:
 - industrial/open-source baseline:
 - foundational predecessor:
-- novelty-boundary label: clear gap / crowded but viable / incremental / already done / unknown
-- one-sentence novelty boundary:
+- topic state: open / crowded / mature / unknown
+- method state: distinct / adaptation with research content / incremental / already done / under-specified / unknown
+- one-sentence innovation boundary:
+
+## Method Delta
+
+- changed information, action, objective, boundary, time/state, interface, or failure dimension:
+- mechanism chain:
+- rival explanation:
+- discriminating experiment:
+- borrowed implementation technique versus research contribution:
 
 ## Story Candidate
 

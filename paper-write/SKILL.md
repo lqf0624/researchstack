@@ -8,7 +8,7 @@ description: |
 
 # Paper Write
 
-Read [../references/memory.md](../references/memory.md), [../references/conference-story-patterns.md](../references/conference-story-patterns.md), and [../references/expert-advice.md](../references/expert-advice.md) before drafting for an ongoing project.
+Read [../references/memory.md](../references/memory.md), [../references/conference-story-patterns.md](../references/conference-story-patterns.md), [../references/expert-advice.md](../references/expert-advice.md), and [../references/evidence-contracts.md](../references/evidence-contracts.md) before drafting for an ongoing project.
 
 Use remembered context when available:
 
@@ -28,6 +28,22 @@ For every section, maintain this contract:
 - evidence,
 - limitation.
 
+Use a four-pass workflow when substantial drafting is needed:
+
+1. **Argument plan**: section objective, claim sequence, evidence placement, and reviewer questions.
+2. **Draft**: write the complete argument before optimizing length.
+3. **Evidence and logic audit**: bind consequential statements to verified sources or promoted results; fix missing warrants, term drift, and unsupported causal language.
+4. **Compression**: remove repetition and throat-clearing while preserving assumptions, limitations, and necessary design rationale.
+
+Use section-specific rhetorical moves:
+
+- introduction: problem consequence, why established approaches fail, method insight, evidence-backed contributions;
+- design: goal and non-goal, constraints, alternatives considered, choice, and immediate rationale;
+- evaluation: question, setup, result, interpretation, and takeaway;
+- related work: mechanism-based grouping, limitation, and explicit method-positioning sentence.
+
+Prefer headings and paragraph openings that communicate conclusions rather than generic topics. Name mechanisms, baselines, metrics, and conditions precisely. Interpret figures instead of merely pointing to them.
+
 Use venue-aware emphasis:
 
 - ICLR: motivation, method novelty, baseline fairness, and broader limits.
@@ -45,5 +61,7 @@ When drafting, supply:
 - paragraph plan,
 - reviewer questions the section should answer,
 - phrases that should be avoided because they overclaim.
+
+Do not cite a discovered or abstract-only source for detailed method claims. Mark missing verification instead of drafting certainty around it.
 
 If the session reveals a repeated writing risk or a stable preference about tone, framing, or claim strength, propose an update to researcher preferences or project memory.

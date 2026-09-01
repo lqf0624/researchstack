@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "package_version": "0.3.0",
+  "host": "codex",
+  "generated_name": "researchstack-experiment-design",
+  "source_skill": "researchstack-experiment-design",
+  "content_sha256": "3ce5b3d935263fe2557f4bde0677eb625dd7e836c78a453d8d28a56d95b8e392"
+}

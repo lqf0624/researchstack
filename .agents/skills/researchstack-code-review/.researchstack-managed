@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "package_version": "0.3.0",
+  "host": "codex",
+  "generated_name": "researchstack-code-review",
+  "source_skill": "researchstack-code-review",
+  "content_sha256": "8bae16246f2a9ce04eef22506c7d9ead91614c4eec54d1dce66bda7c91f5a825"
+}

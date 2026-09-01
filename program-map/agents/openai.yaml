@@ -1,0 +1,6 @@
+interface:
+  display_name: "Researchstack: Program Map"
+  short_description: "Turn one durable topic into a rigorous multi-paper research program."
+  default_prompt: "Use $researchstack-program-map to map this research direction into distinct paper-sized contributions."
+policy:
+  allow_implicit_invocation: true

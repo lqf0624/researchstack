@@ -5,7 +5,9 @@ When a request clearly matches a `researchstack` workflow, invoke the matching s
 Recommended routing:
 
 - If the user is mid-project and asks what to do next, invoke `researchstack-next-step`.
+- If the user needs several distinct papers under one durable topic, invoke `researchstack-program-map`.
 - If the user only has a broad area, invoke `researchstack-idea-finder`.
+- If the topic is fixed but the user needs a new method, invoke `researchstack-method-synthesis`.
 - If the user has a rough paper direction, invoke `researchstack-lab-intake`.
 - If the user wants novelty or risk review, invoke `researchstack-idea-review`.
 - If the user needs guided idea repair, invoke `researchstack-idea-refine`.

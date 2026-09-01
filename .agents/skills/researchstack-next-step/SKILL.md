@@ -6,7 +6,7 @@ description: |
   what not to do yet, and why.
 ---
 
-<!-- AUTO-GENERATED for codex. Edit source SKILL.md files, then rerun bun run gen:skill-docs. -->
+<!-- AUTO-GENERATED for codex from researchstack v0.3.0. Edit source SKILL.md files, then regenerate from the source checkout. -->
 
 # Next Step
 
@@ -41,7 +41,9 @@ Use [assets/next-step-decision-template.md](assets/next-step-decision-template.m
 
 Stage labels:
 
+- research-program planning,
 - idea formation,
+- method formation,
 - literature positioning,
 - evidence building,
 - experiment operations,
@@ -53,6 +55,9 @@ Stage labels:
 
 Common blocking mismatches:
 
+- a durable topic exists but paper candidates overlap,
+- the topic is fixed but the proposed method collapses into prior work,
+- topic novelty is being confused with method novelty,
 - thesis exists but novelty is untested,
 - thesis exists but related-work boundary is unclear,
 - claims are broader than current evidence,
@@ -64,8 +69,10 @@ Common blocking mismatches:
 
 Decision rules:
 
+- If the user needs several distinct papers under one topic, recommend `researchstack-program-map`.
 - If the thesis is vague, recommend `researchstack-lab-intake` or `researchstack-idea-refine`.
 - If the user only has an area, recommend `researchstack-idea-finder`.
+- If the topic is fixed but the method is weak or already has close precedent, recommend `researchstack-method-synthesis`.
 - If novelty is untested, recommend `researchstack-idea-review`.
 - If the closest competitors are unclear, recommend `researchstack-literature-map`.
 - If claims and evaluation are not aligned, recommend `researchstack-experiment-design`.
@@ -85,6 +92,7 @@ If there is not enough information to decide, ask for only the missing state nee
 - current thesis,
 - strongest current evidence,
 - closest baseline or related paper,
+- whether the topic must remain fixed,
 - venue or deadline,
 - what artifact/code/result exists now.
 

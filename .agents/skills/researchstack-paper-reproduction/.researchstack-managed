@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "package_version": "0.3.0",
+  "host": "codex",
+  "generated_name": "researchstack-paper-reproduction",
+  "source_skill": "researchstack-paper-reproduction",
+  "content_sha256": "1e58ace0ea33d49754532283a693e64264abc8fcd22b9dc38b8ec688ce7c6907"
+}

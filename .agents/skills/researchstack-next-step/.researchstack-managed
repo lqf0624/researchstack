@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "package_version": "0.3.0",
+  "host": "codex",
+  "generated_name": "researchstack-next-step",
+  "source_skill": "researchstack-next-step",
+  "content_sha256": "60b9814584d56889d74ff977b0825df7baf6f7d0fe912f7a69756c539f061c80"
+}

@@ -10,6 +10,8 @@ description: |
 
 Audit the paper like an artifact evaluator.
 
+Read [../references/evidence-contracts.md](../references/evidence-contracts.md) and preserve the claim-promotion states during the audit.
+
 Check for each reported result:
 
 - where the number came from,
@@ -17,6 +19,7 @@ Check for each reported result:
 - which config or seed was used,
 - whether the environment is documented,
 - whether reruns are expected to match exactly or statistically.
+- whether the timed and semantic boundary matches the real deployment lifecycle.
 
 Produce:
 
@@ -24,6 +27,7 @@ Produce:
 2. Reproducibility gaps.
 3. Environment assumptions.
 4. Highest-risk silent failure modes.
+5. Claim-promotion downgrades where provenance or controls are insufficient.
 
 Be especially strict about:
 
@@ -33,3 +37,4 @@ Be especially strict about:
 - mismatched train/test or warmup/steady-state conditions,
 - benchmark harnesses that favor the proposed method,
 - copied numbers that no longer match the current codebase.
+- required planning, packing, synchronization, waiting, or assembly work excluded from headline timing.

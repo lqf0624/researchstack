@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "package_version": "0.3.0",
+  "host": "codex",
+  "generated_name": "researchstack-experiment-ops",
+  "source_skill": "researchstack-experiment-ops",
+  "content_sha256": "34b8c00457476e9ca723a07fb37af79ae2c6068b363b73a4925f77c89a033665"
+}
